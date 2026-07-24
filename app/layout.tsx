@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Sidebar from "./components/Sidebar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -33,30 +34,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-sea-100">
-          <div className="container-page flex h-16 items-center justify-between gap-6">
-            <Link href="/" className="flex items-center gap-2 font-bold text-sea-800">
-              <span className="text-xl">🌊</span>
-              <span>망남마을협동조합</span>
-            </Link>
-            <nav className="hidden lg:flex items-center gap-5 text-sm">
-              {nav.map((n) => (
-                <Link
-                  key={n.href}
-                  href={n.href}
-                  className="text-sea-700 hover:text-sea-900 transition-colors"
-                >
-                  {n.label}
-                </Link>
-              ))}
-            </nav>
-            <Link href="/donation" className="btn-primary hidden sm:inline-flex text-sm">
-              후원하기
-            </Link>
-          </div>
-        </header>
+        <Sidebar />
 
-        <main>{children}</main>
+        <div className="lg:ml-64">
+          <main className="min-h-screen">{children}</main>
 
         <footer className="mt-20 border-t border-sea-100 bg-white">
           <div className="container-page py-10 grid gap-8 md:grid-cols-3 text-sm text-sea-700">
@@ -90,6 +71,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        </div>
       </body>
     </html>
   );
