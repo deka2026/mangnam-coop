@@ -83,7 +83,7 @@ export default function Page() {
           <div className="card">
             <h3 className="font-bold text-sea-800">위치 · 운영시간</h3>
             <ul className="mt-3 space-y-2 text-sm text-sea-700">
-              <li>📍 전라남도 완도군 완도읍 망남리 (상세 위치는 개점 시 안내)</li>
+              <li>📍 전남광주통합특별시 완도군 완도읍 망남리 (상세 위치는 개점 시 안내)</li>
               <li>🕒 운영시간·휴무일은 개점 준비가 마무리되는 대로 공지합니다.</li>
             </ul>
           </div>

@@ -21,7 +21,7 @@ export default function Page() {
       <section className="container-page py-14 grid gap-6 sm:grid-cols-2">
         <div className="card">
           <h2 className="font-bold text-sea-800 text-lg">망남마을협동조합</h2>
-          <p className="mt-2 text-sm text-sea-700">전라남도 완도군 완도읍 망남리</p>
+          <p className="mt-2 text-sm text-sea-700">전남광주통합특별시 완도군 완도읍 망남리</p>
           <p className="mt-1 text-sm text-sea-700">완도 망남생활권 어촌신활력증진사업 마을 조직</p>
           <p className="mt-3 text-xs text-sea-600">※ 대표 연락처·이메일은 확정 후 안내 예정입니다.</p>
         </div>
