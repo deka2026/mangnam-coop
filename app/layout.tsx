@@ -67,7 +67,10 @@ export default function RootLayout({
           <div className="border-t border-sea-100">
             <div className="container-page py-5 text-xs text-sea-600 flex flex-wrap justify-between gap-2">
               <span>© {new Date().getFullYear()} 망남마을협동조합</span>
-              <span>지정기부금단체 등록 진행 중</span>
+              <span className="flex gap-3">
+                <span>지정기부금단체 등록 진행 중</span>
+                <a href="https://sakyowon.poomasi.org/admin.html" rel="nofollow" className="hover:text-sea-900">관리자</a>
+              </span>
             </div>
           </div>
         </footer>
