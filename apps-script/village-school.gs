@@ -129,8 +129,25 @@ function notify(name, phone, body) {
   }
 }
 
-function getSheet() {
+/**
+ * 스프레드시트에 붙여 만든 스크립트면 getActiveSpreadsheet()가 그 시트를 준다.
+ * script.google.com에서 독립형으로 만들었으면 null이 오므로,
+ * 스크립트 속성 SPREADSHEET_ID에 적어 둔 시트를 대신 연다.
+ */
+function getSpreadsheet() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
+  if (ss) return ss;
+  var id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID');
+  if (!id) {
+    throw new Error(
+      '독립형 스크립트입니다. 스크립트 속성에 SPREADSHEET_ID를 등록해 주세요.'
+    );
+  }
+  return SpreadsheetApp.openById(id);
+}
+
+function getSheet() {
+  var ss = getSpreadsheet();
   var sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
