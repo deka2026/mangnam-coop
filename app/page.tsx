@@ -99,8 +99,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 참여 */}
+      {/* 마을학교 */}
       <section className="container-page py-16">
+        <Link
+          href="/village-school"
+          className="card group block bg-sea-50 ring-sea-200 transition hover:ring-sea-400"
+        >
+          <p className="font-semibold text-sea-600">망남마을학교 · 참가자 모집</p>
+          <h2 className="mt-2 text-2xl font-bold text-sea-900 group-hover:text-sea-600 sm:text-3xl">
+            섬에서 다시 시작하는 3박 4일 →
+          </h2>
+          <p className="mt-3 max-w-2xl text-sea-700">
+            멈춰 선 청년과 비어 가는 마을이 서로의 자리를 만들어 주는 나흘. 고립·은둔·숨고르기
+            청년을 위한 회복·커뮤니티·취창업 평생교육 프로그램입니다. 버스·숙박·식사 전액 지원.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2 text-xs">
+            {["3박 4일", "20명 모집", "참가비 무료", "인천 ↔ 완도 전세버스"].map((t) => (
+              <span
+                key={t}
+                className="rounded-full bg-white px-3 py-1 font-medium text-sea-700 ring-1 ring-sea-200"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        </Link>
+      </section>
+
+      {/* 참여 */}
+      <section className="container-page pb-16">
         <h2 className="section-title">마을과 함께하는 방법</h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           <div className="card">

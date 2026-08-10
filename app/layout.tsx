@@ -21,6 +21,7 @@ const nav = [
   { href: "/business/foreign-workers", label: "외국인근로자" },
   { href: "/business/empty-house", label: "빈집임대" },
   { href: "/business/kunggaemeori", label: "큰개머리 낚시산장" },
+  { href: "/village-school", label: "망남마을학교" },
   { href: "/donation", label: "고향사랑기부" },
   { href: "/funding", label: "크라우드펀딩" },
   { href: "/contact", label: "문의" },
@@ -58,6 +59,7 @@ export default function RootLayout({
             <div>
               <div className="font-semibold text-sea-800 mb-2">참여</div>
               <ul className="space-y-1">
+                <li><Link href="/village-school" className="hover:text-sea-900">망남마을학교</Link></li>
                 <li><Link href="/donation" className="hover:text-sea-900">고향사랑지정기부</Link></li>
                 <li><Link href="/funding" className="hover:text-sea-900">크라우드펀딩</Link></li>
                 <li><Link href="/contact" className="hover:text-sea-900">문의·제휴</Link></li>
@@ -69,6 +71,7 @@ export default function RootLayout({
               <span>© {new Date().getFullYear()} 망남마을협동조합</span>
               <span className="flex gap-3">
                 <span>지정기부금단체 등록 진행 중</span>
+                <Link href="/village-school/admin" rel="nofollow" className="inline-flex items-center rounded-full border border-sea-200 px-3 py-0.5 hover:bg-sea-50 hover:text-sea-900">🎓 마을학교 신청 관리</Link>
                 <a href="https://sakyowon.poomasi.org/admin.html" rel="nofollow" className="inline-flex items-center rounded-full border border-sea-200 px-3 py-0.5 hover:bg-sea-50 hover:text-sea-900">🔐 통합 관리자</a>
               </span>
             </div>

@@ -15,6 +15,12 @@ const sections = [
     ],
   },
   {
+    title: "마을학교",
+    links: [
+      { href: "/village-school", label: "프로그램 안내·신청" },
+    ],
+  },
+  {
     title: "참여",
     links: [
       { href: "/donation", label: "고향사랑기부" },
