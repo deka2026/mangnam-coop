@@ -110,11 +110,11 @@ export default function Home() {
             섬에서 다시 시작하는 3박 4일 →
           </h2>
           <p className="mt-3 max-w-2xl text-sea-700">
-            멈춰 선 청년과 비어 가는 마을이 서로의 자리를 만들어 주는 나흘. 고립·은둔·숨고르기
-            청년을 위한 회복·커뮤니티·취창업 평생교육 프로그램입니다. 버스·숙박·식사 전액 지원.
+            멈춰 선 청년과 비어 가는 마을이 서로의 자리를 만들어 주는 나흘. 청년을 위한
+            회복·커뮤니티·취창업 평생교육 프로그램입니다. 숙박·식사 전액 지원.
           </p>
           <div className="mt-5 flex flex-wrap gap-2 text-xs">
-            {["3박 4일", "20명 모집", "참가비 무료", "인천 ↔ 완도 전세버스"].map((t) => (
+            {["3박 4일", "20명 모집", "참가비 무료", "첫날 오후 3시 집결"].map((t) => (
               <span
                 key={t}
                 className="rounded-full bg-white px-3 py-1 font-medium text-sea-700 ring-1 ring-sea-200"
