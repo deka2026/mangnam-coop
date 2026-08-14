@@ -25,15 +25,15 @@ export type Day = {
 export const DAYS: Day[] = [
   {
     no: 1,
-    label: "1일차 (목)",
+    label: "1일차 (화)",
     theme: "닿다",
     summary: "도시에서 섬으로. 말하지 않아도 되는 첫날, 4일간의 안전 규칙을 함께 만듭니다.",
     sessions: [
       {
         id: "d1-gather",
         time: "15:00",
-        title: "망남 집결 · 오리엔테이션",
-        desc: "오후 3시까지 교육문화스테이션으로 모입니다. 안전교육, 회복키트 수령.",
+        title: "망남리 도착 · 오리엔테이션",
+        desc: "오후 3시까지 완도 망남리 교육문화스테이션으로 각자 도착·집결합니다. 안전교육, 회복키트 수령.",
         place: "교육문화스테이션 1F",
       },
       {
@@ -84,7 +84,7 @@ export const DAYS: Day[] = [
   },
   {
     no: 2,
-    label: "2일차 (금)",
+    label: "2일차 (수)",
     theme: "배우다",
     summary: "바다가 일하는 법을 몸으로 배웁니다. 자기 이야기보다 손으로 하는 일이 먼저입니다.",
     sessions: [
@@ -156,7 +156,7 @@ export const DAYS: Day[] = [
   },
   {
     no: 3,
-    label: "3일차 (토)",
+    label: "3일차 (목)",
     theme: "만들다",
     summary: "전복 한 마리의 값이 어떻게 정해지는지 뜯어보고, 그 위에서 사업을 만들어 봅니다.",
     sessions: [
@@ -226,7 +226,7 @@ export const DAYS: Day[] = [
   },
   {
     no: 4,
-    label: "4일차 (일)",
+    label: "4일차 (금)",
     theme: "잇다",
     summary: "돌아가는 길이 끊기지 않도록, 3개월 동안 이어질 연결을 만들어 둡니다.",
     sessions: [

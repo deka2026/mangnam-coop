@@ -105,7 +105,7 @@ export default function Home() {
           href="/village-school"
           className="card group block bg-sea-50 ring-sea-200 transition hover:ring-sea-400"
         >
-          <p className="font-semibold text-sea-600">망남마을학교 · 참가자 모집</p>
+          <p className="font-semibold text-sea-600">망남마을학교 · 1기 참가자 모집</p>
           <h2 className="mt-2 text-2xl font-bold text-sea-900 group-hover:text-sea-600 sm:text-3xl">
             섬에서 다시 시작하는 3박 4일 →
           </h2>
@@ -114,7 +114,7 @@ export default function Home() {
             회복·커뮤니티·취창업 평생교육 프로그램입니다. 숙박·식사 전액 지원.
           </p>
           <div className="mt-5 flex flex-wrap gap-2 text-xs">
-            {["3박 4일", "20명 모집", "참가비 무료", "첫날 오후 3시 집결"].map((t) => (
+            {["3박 4일 (화~금)", "1기 20명 모집", "참가비 무료", "첫날 오후 3시 망남리 집결"].map((t) => (
               <span
                 key={t}
                 className="rounded-full bg-white px-3 py-1 font-medium text-sea-700 ring-1 ring-sea-200"
