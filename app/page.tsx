@@ -56,7 +56,7 @@ export default function Home() {
         <p className="section-sub">
           망남마을은 완도읍 여객터미널에서 차량 5분 거리에 있는 전복 양식 중심의 어촌으로,
           완도읍 전복 생산량의 상당 부분을 담당해 왔습니다. 완도타워·동망산 생태길·큰개머리 등
-          풍부한 관광자원을 품고 있으며, 주민이 세운 <strong>전복생산자영어조합법인</strong>을 중심으로
+          풍부한 관광자원을 품고 있으며, 주민이 세운 <strong>망남마을협동조합</strong>을 중심으로
           생산·가공·유통·관광을 잇는 마을경제를 만들어가고 있습니다.
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
