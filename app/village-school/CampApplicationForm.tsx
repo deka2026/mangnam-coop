@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { CONTACT_FORM_URL, ENDPOINT, LOCAL_BACKUP_KEY } from "./config";
+import { CONTACT_FORM_URL, ENDPOINT, LOCAL_BACKUP_KEY, SITE } from "./config";
 
 type Status = "idle" | "sending" | "sent" | "fallback";
 export type CampProgram = "teen" | "senior";
@@ -81,6 +81,7 @@ export default function CampApplicationForm({
 
   const payload = useMemo(
     () => ({
+      site: SITE,
       program,
       programLabel,
       name: name.trim(),
@@ -146,7 +147,7 @@ export default function CampApplicationForm({
       const res = await fetch(ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ action: "apply", ...payload }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       if (!res.ok || !data?.ok) throw new Error(data?.error ?? "저장에 실패했습니다.");

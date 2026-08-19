@@ -7,7 +7,7 @@ import {
   TEAM_OPTIONS,
   WISH_OPTIONS,
 } from "./data";
-import { CONTACT_FORM_URL, ENDPOINT, LOCAL_BACKUP_KEY } from "./config";
+import { CONTACT_FORM_URL, ENDPOINT, LOCAL_BACKUP_KEY, SITE } from "./config";
 
 type Status = "idle" | "sending" | "sent" | "fallback";
 
@@ -172,11 +172,17 @@ export default function ApplicationForm() {
 
     setStatus("sending");
     try {
-      // Apps Script 웹앱은 text/plain으로 보내야 CORS 프리플라이트를 타지 않는다.
+      // text/plain 으로 보내 CORS 프리플라이트를 피한다(서버는 본문을 JSON으로 파싱).
       const res = await fetch(ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ action: "apply", ...payload }),
+        body: JSON.stringify({
+          site: SITE,
+          program: "youth",
+          programLabel: "파란교실 · 청년 망남마을학교",
+          detailsText: summary,
+          ...payload,
+        }),
       });
       const data = await res.json();
       if (!res.ok || !data?.ok) throw new Error(data?.error ?? "저장에 실패했습니다.");

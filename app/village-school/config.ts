@@ -1,16 +1,18 @@
 // 마을학교 신청 백엔드 설정.
 //
-// 이 사이트는 GitHub Pages 정적 배포(output: "export")라 서버가 없다.
-// 그래서 신청 저장·조회는 Google Apps Script 웹앱 + 스프레드시트가 맡는다.
-// 배포 절차는 apps-script/README.md 참고.
+// 신청은 사교원 자체 서버(가비아)의 /api/applications 로 저장한다.
+// 사이트와 API를 같은 출처(sakyowon.co.kr)에서 서빙하므로 상대경로면 충분하고
+// 브라우저 CORS 문제가 없다. 서버 코드·설치는 sakyowon-site/server 참고.
 //
-// 엔드포인트 URL은 정적 번들에 그대로 실리므로 비밀이 아니다.
-// 웹앱은 저장(apply)만 열어 두고, 조회(list)는 관리자가 런타임에 입력한
-// 비밀번호를 스크립트 속성과 대조해서만 응답한다. 비밀번호는 코드에 없다.
+// 필요하면 빌드 시 NEXT_PUBLIC_VILLAGE_SCHOOL_ENDPOINT 로 절대주소 재정의 가능
+// (예: 정적이 아직 다른 출처에 있는 전환기).
 export const ENDPOINT =
-  process.env.NEXT_PUBLIC_VILLAGE_SCHOOL_ENDPOINT ?? "";
+  process.env.NEXT_PUBLIC_VILLAGE_SCHOOL_ENDPOINT ?? "/api/applications";
 
-/** 엔드포인트가 아직 연결되지 않았으면 폼은 "내용 복사 후 문의폼 전달" 방식으로 동작한다. */
+/** 신청 데이터에 함께 보내는 사이트 식별자 (자체 서버가 여러 사이트를 공용으로 받음) */
+export const SITE = "mangnam-coop";
+
+/** 서버 연결 전이거나 전송 실패 시 폼은 "내용 복사 후 문의폼 전달" 방식으로 동작한다. */
 export const CONTACT_FORM_URL = "https://sakyowon.poomasi.org/#/contact";
 
 /** 신청 내용을 브라우저에도 남겨 두어, 전송 실패 시 사용자가 복구할 수 있게 한다. */

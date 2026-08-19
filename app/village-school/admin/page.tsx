@@ -1,8 +1,34 @@
 "use client";
 
 import { Fragment, useMemo, useState } from "react";
-import { ENDPOINT } from "../config";
+import { ENDPOINT, SITE } from "../config";
 import { OPT_OUT_OPTIONS, WISH_OPTIONS } from "../data";
+
+/** 자체 서버(/api/applications) 행을 관리자 화면이 쓰는 형태로 되돌린다.
+ *  서버는 전체 신청 payload를 raw(JSON 문자열)로 보관하므로 거기서 청년 필드를 복원한다. */
+const asArray = (v: unknown): string[] => (Array.isArray(v) ? v.map(String) : []);
+function mapRow(r: any): Application {
+  let raw: any = {};
+  try {
+    raw = typeof r.raw === "string" ? JSON.parse(r.raw) : r.raw ?? {};
+  } catch {
+    raw = {};
+  }
+  return {
+    id: String(r.id ?? ""),
+    createdAt: String(r.created_at ?? r.createdAt ?? ""),
+    name: String(r.name ?? raw.name ?? ""),
+    phone: String(r.phone ?? raw.phone ?? ""),
+    email: String(r.email ?? raw.email ?? ""),
+    team: String(raw.team ?? ""),
+    avoid: asArray(raw.avoid),
+    avoidEtc: String(raw.avoidEtc ?? ""),
+    wish: asArray(raw.wish),
+    wishEtc: String(raw.wishEtc ?? ""),
+    optOut: asArray(raw.optOut),
+    note: String(r.note ?? raw.note ?? ""),
+  };
+}
 
 type Application = {
   id: string;
@@ -47,23 +73,23 @@ export default function AdminPage() {
     e.preventDefault();
     if (!ENDPOINT) {
       setError(
-        "신청 백엔드가 아직 연결되지 않았습니다. apps-script/README.md 절차에 따라 웹앱을 배포하고 NEXT_PUBLIC_VILLAGE_SCHOOL_ENDPOINT 를 설정해 주세요."
+        "신청 백엔드가 아직 연결되지 않았습니다. 사교원 자체 서버(sakyowon-site/server)를 배포하고 /api/applications 가 응답하는지 확인해 주세요."
       );
       return;
     }
     setLoading(true);
     setError("");
     try {
-      const res = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ action: "list", password }),
-      });
+      // 청년(파란교실) 신청만 조회. 관리자 키는 서버 SAKYOWON_ADMIN_KEY 와 대조된다.
+      const url =
+        `${ENDPOINT}?key=${encodeURIComponent(password)}` +
+        `&program=youth&site=${encodeURIComponent(SITE)}`;
+      const res = await fetch(url);
       const data = await res.json();
       if (!res.ok || !data?.ok) {
         throw new Error(data?.error ?? "조회에 실패했습니다.");
       }
-      setRows(data.rows as Application[]);
+      setRows((data.rows as any[]).map(mapRow));
     } catch (err) {
       setRows(null);
       setError(
