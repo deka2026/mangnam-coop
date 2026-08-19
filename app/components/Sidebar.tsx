@@ -17,7 +17,10 @@ const sections = [
   {
     title: "마을학교",
     links: [
-      { href: "/village-school", label: "프로그램 안내·신청" },
+      { href: "/village-school", label: "세 개의 교실 안내" },
+      { href: "/village-school/teen", label: "🌱 연두교실 · 청소년" },
+      { href: "/village-school/youth", label: "🌊 파란교실 · 청년" },
+      { href: "/village-school/senior", label: "🧭 푸른교실 · 장년" },
     ],
   },
   {
@@ -42,8 +45,13 @@ export default function Sidebar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    // 허브(마을학교 안내)는 하위 교실 경로에서 켜지지 않도록 정확히 일치할 때만
+    if (href === "/village-school")
+      return pathname === "/village-school" || pathname === "/village-school/";
+    return pathname.startsWith(href);
+  };
 
   const linkClass = (href: string) =>
     `block rounded-md px-3 py-2 text-sm transition-colors ${

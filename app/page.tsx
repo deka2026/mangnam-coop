@@ -105,16 +105,16 @@ export default function Home() {
           href="/village-school"
           className="card group block bg-sea-50 ring-sea-200 transition hover:ring-sea-400"
         >
-          <p className="font-semibold text-sea-600">망남마을학교 · 1기 참가자 모집</p>
+          <p className="font-semibold text-sea-600">망남마을학교 · 평생교육</p>
           <h2 className="mt-2 text-2xl font-bold text-sea-900 group-hover:text-sea-600 sm:text-3xl">
-            섬에서 다시 시작하는 3박 4일 →
+            세대가 함께 배우는 세 개의 교실 →
           </h2>
           <p className="mt-3 max-w-2xl text-sea-700">
-            멈춰 선 청년과 비어 가는 마을이 서로의 자리를 만들어 주는 나흘. 청년을 위한
-            회복·커뮤니티·취창업 평생교육 프로그램입니다. 숙박·식사 전액 지원.
+            완도 망남 바다와 마을을 교실 삼아, 청소년·청년·장년이 각자의 자리에서 배웁니다.
+            청년 회복 프로그램 파란교실이 1기 참가자를 모집 중입니다.
           </p>
           <div className="mt-5 flex flex-wrap gap-2 text-xs">
-            {["3박 4일 (화~금)", "1기 20명 모집", "참가비 무료", "첫날 오후 3시 망남리 집결"].map((t) => (
+            {["🌱 연두교실 · 청소년", "🌊 파란교실 · 청년", "🧭 푸른교실 · 장년"].map((t) => (
               <span
                 key={t}
                 className="rounded-full bg-white px-3 py-1 font-medium text-sea-700 ring-1 ring-sea-200"
