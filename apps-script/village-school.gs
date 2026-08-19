@@ -7,9 +7,14 @@
  * 설치 절차는 apps-script/README.md 참고.
  *
  * 요청/응답 규약 (본문은 모두 JSON 문자열, Content-Type은 text/plain)
+ *   파란교실(청년):
  *   { action: "apply", name, phone, email, team, avoid[], avoidEtc,
  *     wish[], wishEtc, optOut[], note }        -> { ok: true, id }
+ *   연두교실(청소년)·푸른교실(장년) 스킴보드 신청:
+ *   { action: "apply", program: "teen"|"senior", programLabel,
+ *     name, phone, email, detailsText, note }  -> { ok: true, id }
  *   { action: "list",  password }              -> { ok: true, rows: [...] }
+ *   ※ list는 파란교실('신청' 시트)만 반환한다. 스킴보드 신청은 '스킴보드신청' 시트에서 직접 확인.
  */
 
 var SHEET_NAME = '신청';
@@ -17,6 +22,11 @@ var HEADERS = [
   'id', '신청일시', '이름', '전화번호', '이메일', '소속',
   '금기사항', '금기사항(기타)', '희망체험', '희망체험(기타)',
   '비희망 프로그램', '비고',
+];
+
+var CAMP_SHEET_NAME = '스킴보드신청';
+var CAMP_HEADERS = [
+  'id', '신청일시', '프로그램', '이름', '연락처', '이메일', '추가정보', '문의·요청',
 ];
 
 function doPost(e) {
@@ -36,6 +46,11 @@ function doGet() {
 }
 
 function handleApply(body) {
+  // 연두·푸른교실 스킴보드 신청은 별도 시트로 분리해 저장한다.
+  if (body.program === 'teen' || body.program === 'senior') {
+    return handleCampApply(body);
+  }
+
   var name = trim(body.name);
   var phone = trim(body.phone);
   if (!name) throw new Error('이름이 비어 있습니다.');
@@ -67,6 +82,37 @@ function handleApply(body) {
   }
 
   notify(name, phone, body);
+  return { ok: true, id: id };
+}
+
+function handleCampApply(body) {
+  var name = trim(body.name);
+  var phone = trim(body.phone);
+  if (!name) throw new Error('이름이 비어 있습니다.');
+  if (!phone) throw new Error('연락처가 비어 있습니다.');
+
+  var label = trim(body.programLabel) || (body.program === 'teen' ? '연두교실' : '푸른교실');
+  var sheet = getCampSheet();
+  var id = 'MNC-' + Utilities.formatDate(new Date(), 'Asia/Seoul', 'yyMMdd-HHmmss');
+
+  var lock = LockService.getScriptLock();
+  lock.waitLock(20000);
+  try {
+    sheet.appendRow([
+      id,
+      new Date(),
+      label,
+      name,
+      phone,
+      trim(body.email),
+      trim(body.detailsText),
+      trim(body.note),
+    ]);
+  } finally {
+    lock.releaseLock();
+  }
+
+  notifyCamp(label, name, phone, body);
   return { ok: true, id: id };
 }
 
@@ -158,6 +204,45 @@ function getSheet() {
     sheet.setFrozenRows(1);
   }
   return sheet;
+}
+
+function getCampSheet() {
+  var ss = getSpreadsheet();
+  var sheet = ss.getSheetByName(CAMP_SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(CAMP_SHEET_NAME);
+  }
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(CAMP_HEADERS);
+    sheet.getRange(1, 1, 1, CAMP_HEADERS.length).setFontWeight('bold');
+    sheet.setFrozenRows(1);
+  }
+  return sheet;
+}
+
+/** 스킴보드(연두·푸른) 신청 알림. NOTIFY_EMAIL 속성이 없으면 건너뛴다. */
+function notifyCamp(label, name, phone, body) {
+  var to = PropertiesService.getScriptProperties().getProperty('NOTIFY_EMAIL');
+  if (!to) return;
+  try {
+    MailApp.sendEmail(
+      to,
+      '[망남마을학교/' + label + '] ' + name + '님 신청',
+      [
+        '프로그램: ' + label,
+        '이름: ' + name,
+        '연락처: ' + phone,
+        '이메일: ' + trim(body.email),
+        '',
+        '추가정보:',
+        trim(body.detailsText) || '(없음)',
+        '',
+        '문의·요청: ' + (trim(body.note) || '(없음)'),
+      ].join('\n')
+    );
+  } catch (err) {
+    // 알림 실패가 신청 접수를 막아서는 안 된다.
+  }
 }
 
 function json(obj) {

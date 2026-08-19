@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CampApplicationForm from "../CampApplicationForm";
 
 export const metadata: Metadata = {
   title: "푸른교실 · 스킴보드 강사양성 과정 | 망남마을학교",
   description:
     "배운 것을 가르치는 사람이 되는 스킴보드 강사양성 과정. 1박 2일 집중 교육으로 지상훈련부터 파도타기·교수법까지 익히고 마을학교 지도자로 성장합니다.",
+};
+
+const ACCENT = {
+  heading: "text-teal-800",
+  submit:
+    "inline-flex items-center justify-center rounded-md bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-teal-700",
+  ring: "ring-teal-200",
+  soft: "bg-teal-50",
+  emoji: "🧭",
 };
 
 const FACTS = [
@@ -13,7 +23,7 @@ const FACTS = [
   { k: "장소", v: "전남 완도군 완도읍 망남 해변" },
   { k: "정원", v: "강사 1명당 6명 기준" },
   { k: "수료", v: "스킴보드 입문강습 Level 4 · 수료·시상" },
-  { k: "참가비", v: "운영 예산(안) 하단 참고" },
+  { k: "참가비", v: "추후 공지 · 문의 접수" },
 ];
 
 const DAYS = [
@@ -64,14 +74,6 @@ const METHODS = [
     title: "바다 실습",
     body: "플랫랜드 스킴보딩 → 서프 스킴보딩 → 바디보딩까지, 가르칠 수준으로 몸에 익힙니다.",
   },
-];
-
-const BUDGET = [
-  { group: "강습", item: "스킴보드 입문강습 (Level 4)", unit: "200,000원 × 6명", cost: "1,200,000" },
-  { group: "", item: "서프스케이트", unit: "50,000원 × 6개", cost: "300,000" },
-  { group: "경비", item: "숙박비", unit: "150,000원 × 2박", cost: "300,000" },
-  { group: "", item: "식비", unit: "100,000원 × 2일", cost: "200,000" },
-  { group: "", item: "강사모자 / 단체티", unit: "", cost: "300,000" },
 ];
 
 export default function Page() {
@@ -203,62 +205,27 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 운영 예산(안) */}
-      <section className="container-page pb-12">
-        <div className="card ring-teal-100">
-          <h2 className="font-bold text-teal-800 text-lg">운영 예산(안)</h2>
-          <p className="mt-2 text-sm text-sea-600">강사 1명 · 참가 6명 기준 (부가세 별도)</p>
-          <div className="mt-4 overflow-x-auto">
-            <table className="w-full min-w-[36rem] text-left text-sm">
-              <thead>
-                <tr className="border-b border-teal-100 text-xs uppercase tracking-wide text-teal-500">
-                  <th className="py-2 pr-4 font-semibold">구분</th>
-                  <th className="py-2 pr-4 font-semibold">세부 항목</th>
-                  <th className="py-2 pr-4 font-semibold">단가 × 수량</th>
-                  <th className="py-2 font-semibold text-right">예상 비용(원)</th>
-                </tr>
-              </thead>
-              <tbody className="text-sea-800">
-                {BUDGET.map((b, i) => (
-                  <tr key={i} className="border-b border-teal-50">
-                    <td className="py-2 pr-4 font-medium text-teal-700">{b.group}</td>
-                    <td className="py-2 pr-4">{b.item}</td>
-                    <td className="py-2 pr-4 text-sea-600">{b.unit}</td>
-                    <td className="py-2 text-right tabular-nums">{b.cost}</td>
-                  </tr>
-                ))}
-                <tr className="font-bold text-teal-800">
-                  <td className="py-2 pr-4" colSpan={3}>총계</td>
-                  <td className="py-2 text-right tabular-nums">2,300,000</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <ul className="mt-4 space-y-1 text-xs text-sea-500">
-            <li>· 참가 인원이나 강사 인원이 늘면 비용은 달라질 수 있습니다.</li>
-            <li>· 훈련에 포함된 밸런스보드는 별도 대여비를 청구하지 않았습니다.</li>
-            <li>· 참가자 식사·안전·행사 운영관리 요원 등은 제외한 예산안입니다.</li>
-          </ul>
-        </div>
-      </section>
-
-      {/* 문의 */}
+      {/* 과정 신청 */}
       <section id="apply" className="container-page pb-20 scroll-mt-8">
-        <div className="card ring-teal-200 bg-white">
-          <h2 className="section-title text-2xl sm:text-3xl text-teal-800">과정 문의</h2>
-          <p className="section-sub">
-            개설 일정과 참가 방법은 준비되는 대로 안내드립니다. 강사양성 과정 참가나 마을
-            단위 개설을 검토 중이시면 아래로 문의해 주세요.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/contact" className="inline-flex items-center justify-center rounded-md bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-teal-700">
-              문의·신청하기
-            </Link>
-            <Link href="/village-school" className="inline-flex items-center justify-center rounded-md border border-teal-600 px-5 py-2.5 font-medium text-teal-700 transition-colors hover:bg-teal-100">
-              다른 교실 둘러보기
-            </Link>
-          </div>
+        <h2 className="section-title text-2xl sm:text-3xl text-teal-800">과정 신청</h2>
+        <p className="section-sub">
+          개설 일정과 참가 방법은 준비되는 대로 안내드립니다. 강사양성 과정 참가나 마을
+          단위 개설을 검토 중이시면 아래에 정보를 남겨 주세요.
+        </p>
+        <div className="mt-8">
+          <CampApplicationForm
+            program="senior"
+            programLabel="푸른교실 · 스킴보드 강사양성 과정"
+            accent={ACCENT}
+          />
         </div>
+        <p className="mt-6 text-xs text-sea-600">
+          신청 내용은 과정 운영·안전관리 목적으로만 사용합니다. 다른 교실이 궁금하시면{" "}
+          <Link href="/village-school" className="underline hover:text-teal-800">
+            마을학교 안내
+          </Link>
+          로 돌아가세요.
+        </p>
       </section>
     </>
   );

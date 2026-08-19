@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CampApplicationForm from "../CampApplicationForm";
 
 export const metadata: Metadata = {
   title: "연두교실 · 청소년 스킴보드 캠프 | 망남마을학교",
   description:
     "완도 망남 바다에서 몸으로 배우는 청소년 스킴보드 캠프. 2박 3일 동안 스킴보드와 친해지고, 타고, 혼자 서 봅니다.",
+};
+
+const ACCENT = {
+  heading: "text-lime-800",
+  submit:
+    "inline-flex items-center justify-center rounded-md bg-lime-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-lime-700",
+  ring: "ring-lime-200",
+  soft: "bg-lime-50",
+  emoji: "🌱",
 };
 
 const FACTS = [
@@ -181,23 +191,27 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 문의 */}
+      {/* 참가 신청 */}
       <section id="apply" className="container-page pb-20 scroll-mt-8">
-        <div className="card ring-lime-200 bg-white">
-          <h2 className="section-title text-2xl sm:text-3xl text-lime-800">참가 문의</h2>
-          <p className="section-sub">
-            개설 일정·정원·참가비는 준비되는 대로 안내드립니다. 참가를 원하시거나 단체
-            신청을 검토 중이시면 아래로 문의해 주세요.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/contact" className="inline-flex items-center justify-center rounded-md bg-lime-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-lime-700">
-              문의·신청하기
-            </Link>
-            <Link href="/village-school" className="inline-flex items-center justify-center rounded-md border border-lime-600 px-5 py-2.5 font-medium text-lime-700 transition-colors hover:bg-lime-100">
-              다른 교실 둘러보기
-            </Link>
-          </div>
+        <h2 className="section-title text-2xl sm:text-3xl text-lime-800">참가 신청</h2>
+        <p className="section-sub">
+          개설 일정·정원·참가비는 준비되는 대로 안내드립니다. 아래에 신청 정보를 남겨 주시면
+          운영진이 연락드립니다. 미성년자는 보호자 정보와 동의가 필요합니다.
+        </p>
+        <div className="mt-8">
+          <CampApplicationForm
+            program="teen"
+            programLabel="연두교실 · 청소년 스킴보드 캠프"
+            accent={ACCENT}
+          />
         </div>
+        <p className="mt-6 text-xs text-sea-600">
+          신청 내용은 프로그램 운영·안전관리 목적으로만 사용합니다. 다른 교실이 궁금하시면{" "}
+          <Link href="/village-school" className="underline hover:text-lime-800">
+            마을학교 안내
+          </Link>
+          로 돌아가세요.
+        </p>
       </section>
     </>
   );

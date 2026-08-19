@@ -16,7 +16,7 @@ const CLASSROOMS = [
     tone: "새싹처럼, 처음",
     desc: "완도 바다에서 몸으로 배우는 청소년 스킴보드 캠프. 3일간 스킴보드와 친해지고, 타고, 혼자 서 봅니다.",
     program: "청소년 스킴보드 캠프 · 2박 3일",
-    status: "안내",
+    status: "신청 접수",
     // 연두 = 밝은 연두빛
     wrap: "bg-lime-50 ring-lime-200 hover:ring-lime-400",
     badge: "bg-lime-600",
@@ -45,7 +45,7 @@ const CLASSROOMS = [
     tone: "이제, 이끄는 사람",
     desc: "배운 것을 가르치는 사람이 되는 스킴보드 강사양성 과정. 2일 집중 교육으로 마을학교 지도자로 성장합니다.",
     program: "스킴보드 강사양성 과정 · 1박 2일",
-    status: "안내",
+    status: "신청 접수",
     // 푸른 = 짙은 청록
     wrap: "bg-teal-50 ring-teal-200 hover:ring-teal-400",
     badge: "bg-teal-600",
