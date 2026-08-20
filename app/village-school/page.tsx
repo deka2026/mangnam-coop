@@ -30,7 +30,7 @@ const CLASSROOMS = [
     target: "청년",
     tone: "다시, 나에게로",
     desc: "섬에서 다시 시작하는 3박 4일. 회복·커뮤니티·취창업을 잇는 청년 평생교육 프로그램입니다.",
-    program: "나에게로, 망남 · 3박 4일",
+    program: "나에게로, 망남 · 9/28(월)~10/1(목) · 3박 4일",
     status: "1기 모집 중",
     wrap: "bg-sea-50 ring-sea-200 hover:ring-sea-400",
     badge: "bg-sea-600",

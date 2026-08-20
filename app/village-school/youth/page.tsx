@@ -18,22 +18,22 @@ const PILLARS = [
   {
     icon: "🤝",
     title: "커뮤니티 활동력",
-    body: "자기 이야기부터 시키지 않습니다. 전복을 나르고 밥을 짓는 공동 노동이 먼저 오고, 말은 그다음에 나옵니다. 마을에 실제로 남는 일을 합니다.",
+    body: "자기 이야기부터 시키지 않습니다. 마을을 함께 걷고 밥을 같이 지은 뒤에야, 저녁 밥상에서 네 가지 질문(좋아하는 것·못하는 것·하기 싫은 것·잘하는 것)으로 가볍게 시작합니다.",
   },
   {
     icon: "🧭",
     title: "취창업 역량",
-    body: "생산비 22,000원짜리 전복이 18,000원에 팔리는 구조를 직접 계산합니다. 원가와 가격이 눈앞에 있는 학습, 그 위에서 만드는 사업 프로토타입.",
+    body: "AI로 원하는 것을 직접 만들어 발표하고, 온라인 셀러 교육에서 전복 같은 마을 특산품 파는 법을 배웁니다. 배움은 \"이런 일자리가 필요하다\" 네트워크 파티로 이어집니다.",
   },
 ];
 
 const FACTS = [
-  { k: "기간", v: "3박 4일 (화~금)" },
+  { k: "일정", v: "2026. 9. 28.(월) ~ 10. 1.(목) · 3박 4일" },
   { k: "장소", v: "전남 완도군 완도읍 망남리" },
-  { k: "모집", v: "1기 20명 (개인별 신청)" },
+  { k: "모집", v: "1기 10명 (개인별 신청)" },
   { k: "대상", v: "만 19~39세 청년" },
   { k: "참가비", v: "무료 (숙박·식사 전액 지원)" },
-  { k: "집결", v: "첫날 오후 3시 · 완도 망남리 현장" },
+  { k: "집결", v: "9/28(월) 오후 3시 · 망남리 교육문화스테이션" },
 ];
 
 export default function Page() {
@@ -137,8 +137,8 @@ export default function Page() {
       <section id="schedule" className="container-page py-8 scroll-mt-8">
         <h2 className="section-title text-2xl sm:text-3xl">4일 일정</h2>
         <p className="section-sub">
-          닿다 → 배우다 → 만들다 → 잇다. 회복에서 시작해 마을에서의 역할을 거쳐,
-          끊기지 않는 연결로 마무리합니다.
+          닿다 → 만들다 → 거닐다 → 잇다. 마을에 닿아 AI로 만들고,
+          완도를 거닐고, 끊기지 않는 연결로 마무리합니다.
         </p>
 
         <div className="mt-8 space-y-8">
@@ -187,7 +187,7 @@ export default function Page() {
       <section className="container-page py-12">
         <h2 className="section-title text-2xl sm:text-3xl">돌아간 뒤 3개월</h2>
         <p className="section-sub">
-          프로그램은 4일에 끝나지만 관계는 3개월 이어집니다. 마을살이 짝꿍과 코디네이터가
+          프로그램은 4일에 끝나지만 관계는 3개월 이어집니다. 기수 단톡방과 코디네이터가
           안부를 확인하고, 2주 이상 연락이 끊기면 먼저 다시 연결합니다.
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -200,13 +200,13 @@ export default function Page() {
           <div className="card">
             <p className="font-bold text-sea-800">매월 1회 · 3회</p>
             <p className="mt-1 text-sm text-sea-700">
-              온라인 회고 모임, 각자 적어 간 3개월 실천 계획 점검
+              온라인 회고 모임, 네트워크 파티에서 나온 일자리 아이디어 점검
             </p>
           </div>
           <div className="card">
             <p className="font-bold text-sea-800">상시</p>
             <p className="mt-1 text-sm text-sea-700">
-              짝꿍의 안부 확인. 필요하면 청년미래센터·정신건강복지센터로 함께 연결
+              코디네이터의 안부 확인. 필요하면 사교원의 다음 프로그램·일자리 기회로 연결
             </p>
           </div>
         </div>
