@@ -66,6 +66,8 @@ export default function ApplicationForm() {
   const [wish, setWish] = useState<string[]>([]);
   const [wishEtc, setWishEtc] = useState("");
   const [strength, setStrength] = useState("");
+  const [scheduleOk, setScheduleOk] = useState(false);
+  const [bus, setBus] = useState("");
   const [optOut, setOptOut] = useState<string[]>([]);
   const [note, setNote] = useState("");
   const [agree, setAgree] = useState(false);
@@ -101,11 +103,13 @@ export default function ApplicationForm() {
       wish,
       wishEtc: wishEtc.trim(),
       strength: strength.trim(),
+      scheduleOk,
+      bus,
       optOut,
       optOutLabels,
       note: note.trim(),
     }),
-    [name, phone, email, team, avoid, avoidEtc, wish, wishEtc, strength, optOut, optOutLabels, note]
+    [name, phone, email, team, avoid, avoidEtc, wish, wishEtc, strength, scheduleOk, bus, optOut, optOutLabels, note]
   );
 
   const summary = useMemo(() => {
@@ -117,6 +121,8 @@ export default function ApplicationForm() {
       line("전화번호", payload.phone),
       line("이메일", payload.email),
       line("소속", payload.team),
+      line("일정 참가", payload.scheduleOk ? "제안한 일정(9/28~10/1) 참가 가능" : ""),
+      line("고속버스 이동", payload.bus),
       "",
       "◇ 음식·일상에서 하지 말아야 할 것",
       ...(payload.avoid.length ? payload.avoid.map((a) => `  - ${a}`) : ["  - (없음)"]),
@@ -140,6 +146,10 @@ export default function ApplicationForm() {
     if (!payload.name) return "이름을 입력해 주세요.";
     if (!/^[0-9\-+() ]{9,}$/.test(payload.phone))
       return "연락 가능한 전화번호를 입력해 주세요. (예: 010-1234-5678)";
+    if (!payload.scheduleOk)
+      return "제안한 일정(9/28~10/1)에 참가 가능한 경우 체크해 주세요. 일정 참여가 어려우면 문의 폼으로 상의해 주세요.";
+    if (!payload.bus)
+      return "인천–완도 고속버스 이동 가능 여부를 선택해 주세요.";
     if (payload.avoid.length === 0 && !payload.avoidEtc)
       return "음식·일상에서 하지 말아야 할 것을 선택하거나, 없으면 기타 칸에 '없음'이라고 적어 주세요.";
     if (payload.wish.length === 0 && !payload.wishEtc)
@@ -216,7 +226,8 @@ export default function ApplicationForm() {
         <h3 className="mt-2 text-lg font-bold text-sea-900">신청이 접수되었습니다</h3>
         <p className="mt-3 text-sm leading-relaxed text-sea-700">
           {payload.name}님, 신청해 주셔서 고맙습니다. 적어 주신 내용을 바탕으로 운영진이
-          개별 조정 면담을 위해 <strong>{payload.phone}</strong> 으로 연락드립니다.
+          개별 전화 인터뷰를 위해 <strong>{payload.phone}</strong> 으로 연락드립니다.
+          인터뷰 후 최종 참가 여부를 안내드립니다.
           하고 싶지 않다고 표시하신 프로그램은 대체 활동으로 미리 바꿔 두겠습니다.
         </p>
         <button
@@ -231,6 +242,8 @@ export default function ApplicationForm() {
             setWish([]);
             setWishEtc("");
             setStrength("");
+            setScheduleOk(false);
+            setBus("");
             setOptOut([]);
             setNote("");
             setAgree(false);
@@ -299,6 +312,50 @@ export default function ApplicationForm() {
           </select>
         </label>
       </div>
+
+      {/* 일정·이동 확인 */}
+      <fieldset className="mt-8">
+        <legend className="text-sm font-medium text-sea-800">
+          일정·이동 확인 <span className="text-red-600">*</span>
+        </legend>
+        <label className="mt-3 flex cursor-pointer items-start gap-2.5 rounded-lg border border-sea-200 bg-white px-3 py-2.5 text-sm text-sea-800 hover:bg-sea-50">
+          <input
+            type="checkbox"
+            checked={scheduleOk}
+            onChange={(e) => { setScheduleOk(e.target.checked); setStatus("idle"); }}
+            className="mt-0.5 h-4 w-4 shrink-0 accent-sea-600"
+          />
+          <span>
+            제안한 일정 <strong>2026. 9. 28.(월) ~ 10. 1.(목) 3박 4일</strong>에
+            참가할 수 있습니다.
+          </span>
+        </label>
+        <p className="mt-4 text-sm font-medium text-sea-800">
+          인천에서 완도까지 고속버스 여행이 가능한가요?{" "}
+          <span className="font-normal text-sea-600">(버스 왕복예매권을 제공합니다)</span>
+        </p>
+        <div className="mt-2 grid gap-2 sm:grid-cols-2">
+          {["가능합니다", "어렵습니다 (전화 인터뷰에서 상의)"].map((v) => (
+            <label
+              key={v}
+              className={`flex cursor-pointer items-start gap-2.5 rounded-lg border px-3 py-2.5 text-sm transition-colors ${
+                bus === v
+                  ? "border-sea-500 bg-sea-50 text-sea-900"
+                  : "border-sea-200 bg-white text-sea-800 hover:bg-sea-50"
+              }`}
+            >
+              <input
+                type="radio"
+                name="bus"
+                checked={bus === v}
+                onChange={() => { setBus(v); setStatus("idle"); }}
+                className="mt-0.5 h-4 w-4 shrink-0 accent-sea-600"
+              />
+              <span>{v}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
 
       {/* 안 해야 하는 것 */}
       <fieldset className="mt-8">
@@ -417,6 +474,11 @@ export default function ApplicationForm() {
           <span className="text-red-600"> *</span>
         </span>
       </label>
+
+      <p className="mt-6 rounded-lg bg-sea-50 px-4 py-3 text-sm text-sea-800 ring-1 ring-sea-100">
+        참가비는 <strong>2만원</strong>입니다. 네트워크 파티 음식 준비에 쓰이며,
+        불참 시 환불되지 않습니다. 납부 방법은 개별 전화 인터뷰에서 안내드립니다.
+      </p>
 
       {error && <p className="mt-4 text-sm font-medium text-red-600">{error}</p>}
 
