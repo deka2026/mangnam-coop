@@ -121,7 +121,7 @@ export default function Page() {
               하루 한 번을 넘기지 않고, 침묵 산책과 자유시간을 매일 확보합니다.
             </li>
             <li>
-              <strong>혼자 잘 수 있습니다.</strong> 1인 1침상이 기본이며, 1인실이 필요하다고
+              <strong>혼자 잘 수 있습니다.</strong> 1인실이 필요하다고
               적어 주시면 우선 배정합니다.
             </li>
             <li>
