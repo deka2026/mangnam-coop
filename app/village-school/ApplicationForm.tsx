@@ -65,6 +65,7 @@ export default function ApplicationForm() {
   const [avoidEtc, setAvoidEtc] = useState("");
   const [wish, setWish] = useState<string[]>([]);
   const [wishEtc, setWishEtc] = useState("");
+  const [strength, setStrength] = useState("");
   const [optOut, setOptOut] = useState<string[]>([]);
   const [note, setNote] = useState("");
   const [agree, setAgree] = useState(false);
@@ -99,11 +100,12 @@ export default function ApplicationForm() {
       avoidEtc: avoidEtc.trim(),
       wish,
       wishEtc: wishEtc.trim(),
+      strength: strength.trim(),
       optOut,
       optOutLabels,
       note: note.trim(),
     }),
-    [name, phone, email, team, avoid, avoidEtc, wish, wishEtc, optOut, optOutLabels, note]
+    [name, phone, email, team, avoid, avoidEtc, wish, wishEtc, strength, optOut, optOutLabels, note]
   );
 
   const summary = useMemo(() => {
@@ -123,6 +125,9 @@ export default function ApplicationForm() {
       "◇ 원하는 체험·프로그램",
       ...(payload.wish.length ? payload.wish.map((w) => `  - ${w}`) : ["  - (선택 없음)"]),
       payload.wishEtc ? `  - 기타: ${payload.wishEtc}` : null,
+      ...(payload.strength
+        ? ["", "◇ 내가 잘하는 것 (익숙한 것, 즐기는 것)", `  ${payload.strength}`]
+        : []),
       "",
       "◇ 하고 싶지 않은 프로그램",
       ...(optOutLabels.length ? optOutLabels.map((o) => `  - ${o}`) : ["  - (없음)"]),
@@ -225,6 +230,7 @@ export default function ApplicationForm() {
             setAvoidEtc("");
             setWish([]);
             setWishEtc("");
+            setStrength("");
             setOptOut([]);
             setNote("");
             setAgree(false);
@@ -346,6 +352,24 @@ export default function ApplicationForm() {
           />
         </label>
       </fieldset>
+
+      {/* 잘하는 것 */}
+      <label className="mt-8 block text-sm">
+        <span className="font-medium text-sea-800">
+          내가 잘하는 것 (익숙한 것, 즐기는 것)
+        </span>
+        <p className="mt-1 text-xs text-sea-600">
+          구체적으로 적어 주세요. &lsquo;요리&rsquo;보다는 &lsquo;10인분 김치찌개를 끓여 본 적
+          있음&rsquo;처럼 적어 주시면, 4일 동안 마을에서 맡을 역할을 함께 찾기 훨씬 좋습니다.
+        </p>
+        <textarea
+          value={strength}
+          onChange={(e) => { setStrength(e.target.value); setStatus("idle"); }}
+          rows={3}
+          placeholder="예) 영상 편집 앱으로 브이로그를 만들어 봄 / 낯선 사람에게 말 거는 걸 잘함 / 엑셀 정리가 익숙함"
+          className={fieldClass}
+        />
+      </label>
 
       {/* 하기 싫은 프로그램 */}
       <fieldset className="mt-8">
