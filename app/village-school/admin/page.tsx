@@ -1,7 +1,10 @@
 "use client";
 
-import { Fragment, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { ENDPOINT, SITE } from "../config";
+
+/** 사교원 통합 계정 세션 확인용 — 신청 API와 같은 서버의 /api/auth/me */
+const AUTH_ME = ENDPOINT.replace(/\/applications$/, "/auth/me");
 import { OPT_OUT_OPTIONS, WISH_OPTIONS } from "../data";
 
 /** 자체 서버(/api/applications) 행을 관리자 화면이 쓰는 형태로 되돌린다.
@@ -68,23 +71,18 @@ export default function AdminPage() {
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [openId, setOpenId] = useState<string | null>(null);
+  const [ssoName, setSsoName] = useState<string | null>(null);
 
-  const load = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!ENDPOINT) {
-      setError(
-        "신청 백엔드가 아직 연결되지 않았습니다. 사교원 자체 서버(sakyowon-site/server)를 배포하고 /api/applications 가 응답하는지 확인해 주세요."
-      );
-      return;
-    }
+  const fetchRows = async (key?: string) => {
     setLoading(true);
     setError("");
     try {
-      // 청년(파란교실) 신청만 조회. 관리자 키는 서버 SAKYOWON_ADMIN_KEY 와 대조된다.
+      // 청년(파란교실) 신청만 조회. 통합 계정 세션(쿠키)이 있으면 키 없이 통과되고,
+      // 없으면 관리자 키를 서버 SAKYOWON_ADMIN_KEY 와 대조한다.
       const url =
-        `${ENDPOINT}?key=${encodeURIComponent(password)}` +
-        `&program=youth&site=${encodeURIComponent(SITE)}`;
-      const res = await fetch(url);
+        `${ENDPOINT}?program=youth&site=${encodeURIComponent(SITE)}` +
+        (key ? `&key=${encodeURIComponent(key)}` : "");
+      const res = await fetch(url, { credentials: "include" });
       const data = await res.json();
       if (!res.ok || !data?.ok) {
         throw new Error(data?.error ?? "조회에 실패했습니다.");
@@ -100,6 +98,32 @@ export default function AdminPage() {
     } finally {
       setLoading(false);
     }
+  };
+
+  // 사교원 통합 계정으로 로그인돼 있으면(admin·staff) 비밀번호 없이 바로 조회
+  useEffect(() => {
+    if (!ENDPOINT) return;
+    fetch(AUTH_ME, { credentials: "include" })
+      .then((r) => r.json())
+      .then((d) => {
+        if (d?.ok && (d.user?.role === "admin" || d.user?.role === "staff")) {
+          setSsoName(d.user.name || d.user.username);
+          fetchRows();
+        }
+      })
+      .catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const load = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!ENDPOINT) {
+      setError(
+        "신청 백엔드가 아직 연결되지 않았습니다. 사교원 자체 서버(sakyowon-site/server)를 배포하고 /api/applications 가 응답하는지 확인해 주세요."
+      );
+      return;
+    }
+    await fetchRows(password);
   };
 
   const filtered = useMemo(() => {
@@ -177,6 +201,12 @@ export default function AdminPage() {
       </section>
 
       <section className="container-page py-10">
+        {ssoName && (
+          <p className="mb-6 rounded-lg bg-sea-50 px-4 py-3 text-sm text-sea-800 ring-1 ring-sea-100">
+            <strong>{ssoName}</strong>님, 사교원 통합 계정으로 확인되어 신청 내역을 바로 불러왔습니다.
+          </p>
+        )}
+        {!ssoName && (
         <form onSubmit={load} className="card max-w-lg">
           <label className="block text-sm">
             <span className="font-medium text-sea-800">관리자 비밀번호</span>
@@ -191,6 +221,11 @@ export default function AdminPage() {
           </label>
           <p className="mt-2 text-xs text-sea-600">
             비밀번호는 이 사이트에 저장되지 않습니다. 입력값은 신청 서버에서만 확인합니다.
+            <br />
+            <a href="https://sakyowon.co.kr/admin.html" className="font-medium text-sea-700 underline">
+              사교원 통합 계정으로 로그인
+            </a>
+            하면 비밀번호 없이 조회할 수 있습니다.
           </p>
           <button
             type="submit"
@@ -201,6 +236,8 @@ export default function AdminPage() {
           </button>
           {error && <p className="mt-4 text-sm font-medium text-red-600">{error}</p>}
         </form>
+        )}
+        {ssoName && error && <p className="mb-4 text-sm font-medium text-red-600">{error}</p>}
 
         {rows && (
           <div className="mt-10">

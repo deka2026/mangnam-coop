@@ -76,7 +76,7 @@ export default function RootLayout({
                 <a href="https://sakyowon.co.kr/" className="inline-flex items-center rounded-full border border-sea-200 px-3 py-0.5 hover:bg-sea-50 hover:text-sea-900">🏠 사교원 관계 사이트</a>
                 <span>지정기부금단체 등록 진행 중</span>
                 <Link href="/village-school/admin" rel="nofollow" className="inline-flex items-center rounded-full border border-sea-200 px-3 py-0.5 hover:bg-sea-50 hover:text-sea-900">🎓 마을학교 신청 관리</Link>
-                <a href="https://sakyowon.poomasi.org/admin.html" rel="nofollow" className="inline-flex items-center rounded-full border border-sea-200 px-3 py-0.5 hover:bg-sea-50 hover:text-sea-900">🔐 통합 관리자</a>
+                <a href="https://sakyowon.co.kr/admin.html" rel="nofollow" className="inline-flex items-center rounded-full border border-sea-200 px-3 py-0.5 hover:bg-sea-50 hover:text-sea-900">🔐 통합 관리자</a>
               </span>
             </div>
           </div>
