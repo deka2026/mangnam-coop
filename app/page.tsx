@@ -8,10 +8,10 @@ const businesses = [
     desc: "주민과 방문객, 전복양식 노동자가 함께 이용하는 마을 공동 식당과 생활편의점을 운영합니다.",
   },
   {
-    href: "/business/empty-house",
-    icon: "🏠",
-    title: "빈집임대",
-    desc: "마을의 빈집을 정비해 근로자 숙소·체류형 관광·귀어귀촌 정착 공간으로 다시 잇습니다.",
+    href: "/business/stay",
+    icon: "🌌",
+    title: "별달물멍잠자리",
+    desc: "별멍·달멍·물멍 하고 자고 가는 마을 숙소. 하룻밤 5만원, 여러 날 6박 20만원, 한달쯤 30일 40만원.",
   },
 ];
 
@@ -28,7 +28,7 @@ export default function Home() {
           </h1>
           <p className="mt-5 text-lg text-sea-700 max-w-2xl">
             망남마을협동조합은 완도 망남생활권 주민이 함께 소유하고 함께 나누는 마을 자립 조직입니다.
-            식당·편의점, 빈집임대, 마을학교 등 생활밀착형 사업으로
+            식당·편의점, 별달물멍잠자리, 마을학교 등 생활밀착형 사업으로
             마을에 일자리와 활력을 만듭니다.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">

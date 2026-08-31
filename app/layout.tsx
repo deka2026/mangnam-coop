@@ -6,11 +6,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "망남마을협동조합",
   description:
-    "마을식당·편의점, 빈집임대, 망남마을학교, 플로깅·별달물멍 — 망남마을협동조합의 지속가능한 마을경제.",
+    "마을식당·편의점, 별달물멍잠자리, 망남마을학교, 플로깅·별달물멍 — 망남마을협동조합의 지속가능한 마을경제.",
   openGraph: {
     title: "망남마을협동조합",
     description:
-      "마을식당·편의점, 빈집임대, 망남마을학교, 플로깅·별달물멍 — 지속가능한 마을경제.",
+      "마을식당·편의점, 별달물멍잠자리, 망남마을학교, 플로깅·별달물멍 — 지속가능한 마을경제.",
     type: "website",
     locale: "ko_KR",
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const nav = [
   { href: "/business/village-store", label: "마을식당·편의점" },
-  { href: "/business/empty-house", label: "빈집임대" },
+  { href: "/business/stay", label: "별달물멍잠자리" },
   { href: "/village-school", label: "망남마을학교" },
 ];
 

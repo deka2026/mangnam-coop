@@ -9,7 +9,7 @@ const sections = [
     title: "사업",
     links: [
       { href: "/business/village-store", label: "마을식당·편의점" },
-      { href: "/business/empty-house", label: "빈집임대" },
+      { href: "/business/stay", label: "🌌 별달물멍잠자리" },
     ],
   },
   {

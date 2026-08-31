@@ -326,7 +326,7 @@ export default function ApplicationForm() {
             className="mt-0.5 h-4 w-4 shrink-0 accent-sea-600"
           />
           <span>
-            제안한 일정 <strong>2026. 9. 28.(월) ~ 10. 1.(목) 3박 4일</strong>에
+            제안한 일정 <strong>2026. 10. 12.(월) ~ 10. 15.(목) 3박 4일</strong>에
             참가할 수 있습니다.
           </span>
         </label>
