@@ -1,20 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import CampApplicationForm from "../CampApplicationForm";
 
 export const metadata: Metadata = {
   title: "푸른교실 · 양성과정 | 망남마을학교",
   description:
     "배운 것을 가르치고, 마을을 이끄는 사람이 되는 푸른교실. 스킴보드 강사양성 과정(9/12~13)과 햇빛소득마을 컨설턴트 양성 교육(9/19~20), 두 개의 양성과정으로 운영합니다.",
-};
-
-const ACCENT = {
-  heading: "text-teal-800",
-  submit:
-    "inline-flex items-center justify-center rounded-md bg-teal-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-teal-700",
-  ring: "ring-teal-200",
-  soft: "bg-teal-50",
-  emoji: "🧭",
 };
 
 /* ── 과정 1: 스킴보드 강사양성 과정 (9/12~13) ── */
@@ -233,17 +223,16 @@ export default function Page() {
       {/* 과정 신청 */}
       <section id="apply" className="container-page py-14 pb-20 scroll-mt-8">
         <h2 className="section-title text-2xl sm:text-3xl text-teal-800">과정 신청</h2>
-        <p className="section-sub">
-          참가비 등 상세 안내는 준비되는 대로 드립니다. 아래에 신청 정보를 남기시고,{" "}
-          <strong>문의·요청 사항에 원하는 과정(강사양성 / 컨설턴트 / 둘 다)</strong>을 적어
-          주세요.
-        </p>
-        <div className="mt-8">
-          <CampApplicationForm
-            program="senior"
-            programLabel="푸른교실 · 양성과정 (강사양성 9/12~13 · 컨설턴트 9/19~20)"
-            accent={ACCENT}
-          />
+        <div className="mt-8 card bg-teal-50 ring-teal-200">
+          <h3 className="font-bold text-teal-800 text-lg">✅ 신청이 완료되었습니다</h3>
+          <p className="mt-2 text-sm leading-relaxed text-sea-800">
+            푸른교실 두 과정(스킴보드 강사양성 9/12~13 · 햇빛소득마을 컨설턴트 9/19~20)의
+            신청 접수가 완료되었습니다. 참가자분들께는 과정 안내를 개별 연락드립니다.
+            다음 기수 소식은 마을학교 안내를 통해 알려드리겠습니다.
+          </p>
+          <p className="mt-3 text-sm text-sea-700">
+            문의가 있으시면 <Link href="/contact" className="underline hover:text-teal-800">문의 페이지</Link>를 이용해 주세요.
+          </p>
         </div>
         <p className="mt-6 text-xs text-sea-600">
           신청 내용은 과정 운영·안전관리 목적으로만 사용합니다. 다른 교실이 궁금하시면{" "}

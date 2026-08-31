@@ -1,20 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import CampApplicationForm from "../CampApplicationForm";
 
 export const metadata: Metadata = {
   title: "연두교실 · 청소년 스킴보드 캠프 | 망남마을학교",
   description:
     "완도 망남 한뼘해변에서 몸으로 배우는 청소년 스킴보드 캠프. 9월 5~6일 이틀 동안 기초부터 파도타기, 스킴보드 챌린지까지.",
-};
-
-const ACCENT = {
-  heading: "text-lime-800",
-  submit:
-    "inline-flex items-center justify-center rounded-md bg-lime-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-lime-700",
-  ring: "ring-lime-200",
-  soft: "bg-lime-50",
-  emoji: "🌱",
 };
 
 const FACTS = [
@@ -97,7 +87,7 @@ export default function Page() {
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href="#apply" className="inline-flex items-center justify-center rounded-md bg-lime-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-lime-700">
-              참가 문의하기
+              신청 완료 안내
             </a>
             <a href="#schedule" className="inline-flex items-center justify-center rounded-md border border-lime-600 px-5 py-2.5 font-medium text-lime-700 transition-colors hover:bg-lime-100">
               이틀 커리큘럼 보기
@@ -195,16 +185,16 @@ export default function Page() {
       {/* 참가 신청 */}
       <section id="apply" className="container-page pb-20 scroll-mt-8">
         <h2 className="section-title text-2xl sm:text-3xl text-lime-800">참가 신청</h2>
-        <p className="section-sub">
-          개설 일정·정원·참가비는 준비되는 대로 안내드립니다. 아래에 신청 정보를 남겨 주시면
-          운영진이 연락드립니다. 미성년자는 보호자 정보와 동의가 필요합니다.
-        </p>
-        <div className="mt-8">
-          <CampApplicationForm
-            program="teen"
-            programLabel="연두교실 · 청소년 스킴보드 캠프"
-            accent={ACCENT}
-          />
+        <div className="mt-8 card bg-lime-50 ring-lime-200">
+          <h3 className="font-bold text-lime-800 text-lg">✅ 신청이 완료되었습니다</h3>
+          <p className="mt-2 text-sm leading-relaxed text-sea-800">
+            연두교실(9/5~6 스킴보드 캠프)의 참가 신청 접수가 완료되었습니다.
+            참가자분들께는 일정·준비물 안내를 개별 연락드립니다.
+            다음 기수 소식은 마을학교 안내를 통해 알려드리겠습니다.
+          </p>
+          <p className="mt-3 text-sm text-sea-700">
+            문의가 있으시면 <Link href="/contact" className="underline hover:text-lime-800">문의 페이지</Link>를 이용해 주세요.
+          </p>
         </div>
         <p className="mt-6 text-xs text-sea-600">
           신청 내용은 프로그램 운영·안전관리 목적으로만 사용합니다. 다른 교실이 궁금하시면{" "}
