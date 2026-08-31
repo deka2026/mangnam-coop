@@ -25,7 +25,7 @@ export type Day = {
 export const DAYS: Day[] = [
   {
     no: 1,
-    label: "1일차 · 9/28(월)",
+    label: "1일차 · 10/12(월)",
     theme: "닿다",
     summary: "도시에서 섬으로. 마을을 한 바퀴 걷고, 바다에서 보드를 타고, 저녁 밥상에서 서로를 소개합니다.",
     sessions: [
@@ -77,7 +77,7 @@ export const DAYS: Day[] = [
   },
   {
     no: 2,
-    label: "2일차 · 9/29(화)",
+    label: "2일차 · 10/13(화)",
     theme: "만들다",
     summary: "AI를 배우고, 배운 것으로 각자 원하는 것을 만들어 발표합니다.",
     sessions: [
@@ -138,7 +138,7 @@ export const DAYS: Day[] = [
   },
   {
     no: 3,
-    label: "3일차 · 9/30(수)",
+    label: "3일차 · 10/14(수)",
     theme: "거닐다",
     summary: "새벽 일출로 하루를 열고, 완도를 거닐거나 파는 법을 배웁니다. 저녁엔 일자리 이야기.",
     sessions: [
@@ -185,7 +185,7 @@ export const DAYS: Day[] = [
   },
   {
     no: 4,
-    label: "4일차 · 10/1(목)",
+    label: "4일차 · 10/15(목)",
     theme: "잇다",
     summary: "사교원과 인연을 맺고, 연결을 남긴 채 돌아갑니다.",
     sessions: [
@@ -252,6 +252,7 @@ export const WISH_OPTIONS = [
   "AI 교육",
   "온라인셀러 교육",
   "취창업 교육",
+  "완도 자유여행",
 ];
 
 export const TEAM_OPTIONS = [

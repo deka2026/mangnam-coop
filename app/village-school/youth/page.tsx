@@ -33,7 +33,7 @@ const FACTS = [
   { k: "모집", v: "1기 10명 (개인별 신청)" },
   { k: "대상", v: "만 19~39세 청년" },
   { k: "참가비", v: "2만원 (네트워크 파티 음식 준비용 · 불참 시 환불 불가)" },
-  { k: "집결", v: "9/28(월) 오후 3시 · 망남리 교육문화스테이션" },
+  { k: "집결", v: "10/12(월) 오후 3시 · 망남리 교육문화스테이션" },
 ];
 
 export default function Page() {
@@ -256,18 +256,18 @@ export default function Page() {
         {/* 신청 절차 */}
         <ol className="mt-8 grid gap-4 sm:grid-cols-3">
           <li className="card">
-            <p className="text-sm font-semibold text-sea-500">STEP 1</p>
+            <p className="text-sm font-semibold text-sea-500">STEP 1 <span className="ml-1 rounded-full bg-sea-100 px-2 py-0.5 text-xs font-bold text-sea-700">9/18(금)까지</span></p>
             <h3 className="mt-1 font-bold text-sea-900">참가 신청서 작성</h3>
             <p className="mt-2 text-sm leading-relaxed text-sea-700">
               제시한 일정에 참여 가능할 경우 작성하세요. 이름·전화번호·이메일,
               원하는 프로그램(스킴보드 강습, 해안로 탐방, AI 교육, 온라인셀러 교육,
-              취창업 교육 등), 제안한 일정 참가 여부, 인천–완도 고속버스 여행 가능
-              여부(버스 왕복예매권 제공)를 적습니다. 참가비는 2만원입니다
+              취창업 교육, 완도 자유여행 등), 제안한 일정 참가 여부, 인천–완도 고속버스
+              여행 가능 여부(버스 왕복예매권 제공)를 적습니다. 참가비는 2만원입니다
               (네트워크 파티 음식 준비용, 불참 시 환불 불가).
             </p>
           </li>
           <li className="card">
-            <p className="text-sm font-semibold text-sea-500">STEP 2</p>
+            <p className="text-sm font-semibold text-sea-500">STEP 2 <span className="ml-1 rounded-full bg-sea-100 px-2 py-0.5 text-xs font-bold text-sea-700">9/23(수)까지</span></p>
             <h3 className="mt-1 font-bold text-sea-900">개별 전화 인터뷰</h3>
             <p className="mt-2 text-sm leading-relaxed text-sea-700">
               제안하는 프로그램에 대한 선호도 조사와, 개인별 특성을 고려한
@@ -275,7 +275,7 @@ export default function Page() {
             </p>
           </li>
           <li className="card">
-            <p className="text-sm font-semibold text-sea-500">STEP 3</p>
+            <p className="text-sm font-semibold text-sea-500">STEP 3 <span className="ml-1 rounded-full bg-sea-100 px-2 py-0.5 text-xs font-bold text-sea-700">9/30(수)까지</span></p>
             <h3 className="mt-1 font-bold text-sea-900">최종 참가 통보 및 안내</h3>
             <p className="mt-2 text-sm leading-relaxed text-sea-700">
               개인별 특성을 고려하여 현지 사정으로 적절한 준비를 할 수 없는

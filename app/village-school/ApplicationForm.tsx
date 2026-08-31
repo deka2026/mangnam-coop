@@ -121,7 +121,7 @@ export default function ApplicationForm() {
       line("전화번호", payload.phone),
       line("이메일", payload.email),
       line("소속", payload.team),
-      line("일정 참가", payload.scheduleOk ? "제안한 일정(9/28~10/1) 참가 가능" : ""),
+      line("일정 참가", payload.scheduleOk ? "제안한 일정(10/12~10/15) 참가 가능" : ""),
       line("고속버스 이동", payload.bus),
       "",
       "◇ 음식·일상에서 하지 말아야 할 것",
@@ -147,7 +147,7 @@ export default function ApplicationForm() {
     if (!/^[0-9\-+() ]{9,}$/.test(payload.phone))
       return "연락 가능한 전화번호를 입력해 주세요. (예: 010-1234-5678)";
     if (!payload.scheduleOk)
-      return "제안한 일정(9/28~10/1)에 참가 가능한 경우 체크해 주세요. 일정 참여가 어려우면 문의 폼으로 상의해 주세요.";
+      return "제안한 일정(10/12~10/15)에 참가 가능한 경우 체크해 주세요. 일정 참여가 어려우면 문의 폼으로 상의해 주세요.";
     if (!payload.bus)
       return "인천–완도 고속버스 이동 가능 여부를 선택해 주세요.";
     if (payload.avoid.length === 0 && !payload.avoidEtc)
