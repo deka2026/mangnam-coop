@@ -20,6 +20,8 @@ export default function ReservationForm() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [note, setNote] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [sent, setSent] = useState(false);          // 서버 접수 성공 여부
+  const [sending, setSending] = useState(false);
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState("");
 
@@ -53,7 +55,7 @@ export default function ReservationForm() {
       .join("\n");
   }, [name, phone, date, timeSlot, selectedMenus, quantities, note]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim()) {
       setError("예약자 이름을 입력해 주세요.");
@@ -69,7 +71,35 @@ export default function ReservationForm() {
     }
     setError("");
     setCopied(false);
-    setSubmitted(true);
+    // 자체서버로 접수 — 성공 시 운영진 텔레그램 알림방으로 즉시 전달된다.
+    setSending(true);
+    try {
+      const res = await fetch("/api/applications", {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+          site: "mangnam-coop",
+          program: "restaurant",
+          programLabel: "마을식당 예약",
+          name: name.trim(),
+          phone: phone.trim(),
+          detailsText: summary,
+          note: note.trim(),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (data?.ok) {
+        setSent(true);
+        setSubmitted(true);
+        setSending(false);
+        return;
+      }
+    } catch {
+      /* 아래 복사 폴백으로 */
+    }
+    setSending(false);
+    setSent(false);
+    setSubmitted(true);   // 서버 연결 실패 시 기존 "복사 후 문의폼 전달" 흐름
   };
 
   const handleCopy = async () => {
@@ -85,8 +115,7 @@ export default function ReservationForm() {
     <form onSubmit={handleSubmit} className="card">
       <h3 className="font-bold text-sea-800 text-lg">마을식당 예약</h3>
       <p className="mt-2 text-sm text-sea-700">
-        아래 내용을 작성해 예약을 신청하세요. 대표 전화가 개통되기 전까지는 작성된
-        예약 내용을 앵커 조직(사회혁신교육원) 문의 폼으로 전달해 주시면 마을에서
+        아래 내용을 작성해 예약을 신청하세요. 접수 즉시 운영진에게 전달되며,
         확인 후 연락드립니다.
       </p>
 
@@ -187,13 +216,22 @@ export default function ReservationForm() {
 
       {error && <p className="mt-4 text-sm font-medium text-red-600">{error}</p>}
 
-      <button type="submit" className="btn-primary mt-5 w-full sm:w-auto">
-        예약 내용 만들기
+      <button type="submit" disabled={sending} className="btn-primary mt-5 w-full sm:w-auto disabled:opacity-60">
+        예약 신청하기
       </button>
 
-      {submitted && (
+      {submitted && sent && (
         <div className="mt-6 rounded-xl bg-sea-50 ring-1 ring-sea-200 p-4">
-          <p className="text-sm font-semibold text-sea-800">예약 신청 내용</p>
+          <p className="text-sm font-semibold text-sea-800">✅ 예약 신청이 접수되었습니다</p>
+          <p className="mt-1 text-sm text-sea-700">
+            운영진에게 실시간으로 전달되었습니다. 확인 후 남겨주신 연락처로 예약 확정
+            연락을 드립니다.
+          </p>
+        </div>
+      )}
+      {submitted && !sent && (
+        <div className="mt-6 rounded-xl bg-sea-50 ring-1 ring-sea-200 p-4">
+          <p className="text-sm font-semibold text-sea-800">예약 신청 내용 (서버 연결 실패 — 아래 방법으로 전달해 주세요)</p>
           <pre className="mt-2 whitespace-pre-wrap rounded-md bg-white p-3 text-sm text-sea-900 ring-1 ring-sea-100">
 {summary}
           </pre>

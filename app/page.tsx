@@ -8,22 +8,10 @@ const businesses = [
     desc: "주민과 방문객, 전복양식 노동자가 함께 이용하는 마을 공동 식당과 생활편의점을 운영합니다.",
   },
   {
-    href: "/business/foreign-workers",
-    icon: "🤝",
-    title: "외국인근로자 인력소개",
-    desc: "전복 양식 현장에 필요한 외국인 근로자를 합법적 절차로 소개하고 정착을 돕습니다.",
-  },
-  {
     href: "/business/empty-house",
     icon: "🏠",
     title: "빈집임대",
     desc: "마을의 빈집을 정비해 근로자 숙소·체류형 관광·귀어귀촌 정착 공간으로 다시 잇습니다.",
-  },
-  {
-    href: "/business/kunggaemeori",
-    icon: "🎣",
-    title: "큰개머리 낚시산장",
-    desc: "완도 큰개머리의 바다 자원을 살린 낚시·체류형 관광으로 마을에 방문객을 부릅니다.",
   },
 ];
 
@@ -40,7 +28,7 @@ export default function Home() {
           </h1>
           <p className="mt-5 text-lg text-sea-700 max-w-2xl">
             망남마을협동조합은 완도 망남생활권 주민이 함께 소유하고 함께 나누는 마을 자립 조직입니다.
-            식당·편의점, 외국인근로자 인력소개, 빈집임대, 낚시산장 등 생활밀착형 사업으로
+            식당·편의점, 빈집임대, 마을학교 등 생활밀착형 사업으로
             마을에 일자리와 활력을 만듭니다.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -131,21 +119,22 @@ export default function Home() {
         <h2 className="section-title">마을과 함께하는 방법</h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
           <div className="card">
-            <div className="text-2xl">💝</div>
-            <h3 className="mt-2 font-bold text-sea-800">고향사랑지정기부</h3>
+            <div className="text-2xl">🧹</div>
+            <h3 className="mt-2 font-bold text-sea-800">플로깅 신청</h3>
             <p className="mt-1 text-sm text-sea-700">
-              고향사랑기부제를 통해 망남마을을 후원하면 세액공제와 답례품 혜택을 받습니다.
-              모인 기부금은 마을공동체 사업에 쓰입니다.
+              망남 해변을 걸으며 쓰레기를 줍는 플로깅. 마을과 바다를 함께 돌보는
+              가장 쉬운 참여입니다. 집게·장갑은 마을에서 준비합니다.
             </p>
-            <Link href="/donation" className="mt-4 inline-block text-sea-600 font-medium hover:text-sea-800">자세히 →</Link>
+            <Link href="/plogging" className="mt-4 inline-block text-sea-600 font-medium hover:text-sea-800">신청하기 →</Link>
           </div>
           <div className="card">
-            <div className="text-2xl">🚀</div>
-            <h3 className="mt-2 font-bold text-sea-800">크라우드펀딩</h3>
+            <div className="text-2xl">🌌</div>
+            <h3 className="mt-2 font-bold text-sea-800">별달물멍 스팟예약</h3>
             <p className="mt-1 text-sm text-sea-700">
-              전복 가공품·마을 체험 상품 등 망남마을이 준비하는 프로젝트에 함께 투자·후원할 수 있습니다.
+              별멍·달멍·물멍 — 불빛 적은 망남의 밤바다에서 아무것도 하지 않을 자유를.
+              조용한 명당을 예약제로 안내합니다.
             </p>
-            <Link href="/funding" className="mt-4 inline-block text-sea-600 font-medium hover:text-sea-800">자세히 →</Link>
+            <Link href="/mulmeong" className="mt-4 inline-block text-sea-600 font-medium hover:text-sea-800">예약하기 →</Link>
           </div>
         </div>
       </section>

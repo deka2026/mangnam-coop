@@ -9,9 +9,7 @@ const sections = [
     title: "사업",
     links: [
       { href: "/business/village-store", label: "마을식당·편의점" },
-      { href: "/business/foreign-workers", label: "외국인근로자" },
       { href: "/business/empty-house", label: "빈집임대" },
-      { href: "/business/kunggaemeori", label: "큰개머리 낚시산장" },
     ],
   },
   {
@@ -26,8 +24,8 @@ const sections = [
   {
     title: "참여",
     links: [
-      { href: "/donation", label: "고향사랑기부" },
-      { href: "/funding", label: "크라우드펀딩" },
+      { href: "/plogging", label: "🧹 플로깅 신청" },
+      { href: "/mulmeong", label: "🌌 별달물멍 스팟예약" },
     ],
   },
   {
