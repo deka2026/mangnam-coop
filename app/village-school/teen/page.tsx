@@ -5,7 +5,7 @@ import CampApplicationForm from "../CampApplicationForm";
 export const metadata: Metadata = {
   title: "연두교실 · 청소년 스킴보드 캠프 | 망남마을학교",
   description:
-    "완도 망남 바다에서 몸으로 배우는 청소년 스킴보드 캠프. 2박 3일 동안 스킴보드와 친해지고, 타고, 혼자 서 봅니다.",
+    "완도 망남 한뼘해변에서 몸으로 배우는 청소년 스킴보드 캠프. 9월 5~6일 이틀 동안 기초부터 파도타기, 스킴보드 챌린지까지.",
 };
 
 const ACCENT = {
@@ -19,8 +19,8 @@ const ACCENT = {
 
 const FACTS = [
   { k: "대상", v: "청소년 (중·고등학생)" },
-  { k: "기간", v: "2박 3일" },
-  { k: "장소", v: "전남 완도군 완도읍 망남 해변" },
+  { k: "일정", v: "9월 5일(토) ~ 6일(일) · 09:30~18:00" },
+  { k: "장소", v: "완도 망남 한뼘해변 (실내강습장·특판장, 화장실·샤워실)" },
   { k: "정원", v: "소수정예 (안전 지도 6~10명)" },
   { k: "준비물", v: "레쉬가드 또는 웻수트 (장비 대여)" },
   { k: "참가비", v: "추후 공지 · 문의 접수" },
@@ -28,33 +28,33 @@ const FACTS = [
 
 const DAYS = [
   {
-    label: "1일차",
-    theme: "스킴보드랑 친해지기",
-    summary: "장비와 몸을 먼저 익힙니다. 넘어지는 법부터 배우니 겁내지 않아도 됩니다.",
+    label: "1일차 · 9/5(토)",
+    theme: "스킴보드랑 친해지기 — 기초에서 비거리까지",
+    summary:
+      "실내강습장에서 이론과 지상훈련으로 몸을 먼저 준비하고, 해변으로 나가 플랫랜드 스킴보딩을 익힙니다.",
     sessions: [
-      { title: "이론 강습", desc: "스킴보드의 역사와 보드 각 부분 명칭, 안전 수칙" },
-      { title: "RDS 기초", desc: "드랍(보드에 올라타기) 익숙해지기 · 밸런스 훈련" },
-      { title: "라이딩 영상 피드백", desc: "내 자세를 영상으로 보며 하나씩 교정합니다" },
+      { title: "오리엔테이션 (09:30)", desc: "프로그램 소개, 팀 나누기" },
+      { title: "스킴보드 소개·안전교육 (10:00)", desc: "스킴보드 소개와 RDS, 안전 수칙" },
+      { title: "지상훈련 (10:30)", desc: "밸런스보드, Slide 자세 연습" },
+      { title: "플랫랜드 스킴보딩 Ⅰ·Ⅱ (11:00·13:00)", desc: "RDS 기초 → RDS 런 레벨업 (해변 이동)" },
+      { title: "스킴 미션 (14:00)", desc: "비거리 늘리기" },
+      { title: "자유 스킴 (15:00)", desc: "개별 피드백 — 안전요원 상시 대기" },
+      { title: "영상 촬영·소감 나누기 (16:00)", desc: "내 라이딩을 영상으로 보고, 내일 일정을 안내합니다" },
     ],
   },
   {
-    label: "2일차",
-    theme: "스킴보드 타기",
-    summary: "속도를 내고 방향을 잡습니다. 어제보다 조금 더 멀리 나갑니다.",
+    label: "2일차 · 9/6(일)",
+    theme: "파도 위로 — 서프 스킴보딩과 챌린지",
+    summary:
+      "엣지 턴을 배우고 실제 파도를 탑니다. 마지막엔 대회 형식의 스킴보드 챌린지와 수료식·시상식으로 마무리합니다.",
     sessions: [
-      { title: "이론 강습", desc: "스킴보딩의 종류 이해" },
-      { title: "RDS 레벨업", desc: "런업(속도 내기) · 비거리 늘리기" },
-      { title: "라이딩 영상 피드백", desc: "달라진 내 라이딩을 확인합니다" },
-    ],
-  },
-  {
-    label: "3일차",
-    theme: "스킴보드 혼자 타기",
-    summary: "파도를 읽고 스스로 한 라운드를 완성합니다.",
-    sessions: [
-      { title: "이론 강습", desc: "파도의 종류와 파도 보는 법" },
-      { title: "파도타기 · 바디보딩", desc: "실제 파도 위에서 라이딩, 바디보딩 체험" },
-      { title: "라이딩 영상 피드백", desc: "3일간의 성장을 함께 돌아봅니다" },
+      { title: "워밍업 (09:30)", desc: "전날 복습, 준비운동" },
+      { title: "지상훈련 (10:00)", desc: "엣지 턴 이론, 서프스케이트" },
+      { title: "서프 스킴보딩 Ⅰ (11:00)", desc: "사선라이딩, 엣지 턴 (해변 이동)" },
+      { title: "서프 스킴보딩 Ⅱ (13:00)", desc: "파도 보는 법, 파도타기" },
+      { title: "자유 스킴 (14:00)", desc: "개별 피드백" },
+      { title: "스킴보드 챌린지 (15:00)", desc: "거리·턴·스킬 — 대회 형식으로 실력을 겨룹니다" },
+      { title: "수료식·시상식 (17:00)", desc: "수료증 수여, 단체 사진, 만족도 조사" },
     ],
   },
 ];
@@ -89,18 +89,18 @@ export default function Page() {
             <span className="font-semibold text-lime-700">🌱 연두교실 · 청소년</span>
           </p>
           <h1 className="mt-3 section-title text-lime-800">청소년 스킴보드 캠프</h1>
-          <p className="mt-3 text-xl font-semibold text-lime-700">바다에서, 처음</p>
+          <p className="mt-3 text-xl font-semibold text-lime-700">바다에서, 처음 — 9월 5일(토)·6일(일)</p>
           <p className="section-sub">
-            완도 망남 바다를 교실 삼아 스킴보드를 배우는 2박 3일. 넘어지는 법부터 배우고,
-            영상으로 내 자세를 보며 하루가 다르게 성장합니다. 3일 뒤에는 스스로 파도 한
-            줄기를 탈 수 있습니다.
+            완도 망남 한뼘해변을 교실 삼아 스킴보드를 배우는 이틀. 넘어지는 법부터 배우고,
+            영상으로 내 자세를 보며 하루가 다르게 성장합니다. 마지막 날에는 스스로 파도를
+            타고, 스킴보드 챌린지에서 실력을 겨룹니다.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href="#apply" className="inline-flex items-center justify-center rounded-md bg-lime-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-lime-700">
               참가 문의하기
             </a>
             <a href="#schedule" className="inline-flex items-center justify-center rounded-md border border-lime-600 px-5 py-2.5 font-medium text-lime-700 transition-colors hover:bg-lime-100">
-              3일 커리큘럼 보기
+              이틀 커리큘럼 보기
             </a>
           </div>
         </div>
@@ -139,8 +139,8 @@ export default function Page() {
 
       {/* 3일 커리큘럼 */}
       <section id="schedule" className="container-page py-12 scroll-mt-8">
-        <h2 className="section-title text-2xl sm:text-3xl">3일 커리큘럼</h2>
-        <p className="section-sub">친해지기 → 타기 → 혼자 타기. 하루에 한 단계씩 올라갑니다.</p>
+        <h2 className="section-title text-2xl sm:text-3xl">이틀 커리큘럼</h2>
+        <p className="section-sub">첫날은 플랫랜드에서 기초를, 둘째 날은 파도 위에서 — 챌린지와 수료식으로 마무리합니다.</p>
 
         <div className="mt-8 space-y-8">
           {DAYS.map((day) => (
@@ -183,9 +183,10 @@ export default function Page() {
             <h2 className="font-bold text-lime-800 text-lg">안전이 먼저입니다</h2>
             <ul className="mt-4 space-y-2 text-sm leading-relaxed text-sea-800">
               <li>• 첫 시간에 RDS·안전 교육을 하고, 자세가 준비된 만큼만 바다로 들어갑니다.</li>
-              <li>• 응급조치가 가능한 안전요원이 상시 배치됩니다.</li>
-              <li>• 참가 전 보호자 동의서(면책동의서)를 받습니다.</li>
-              <li>• 우천 시 실내에서 서프스케이트로, 물때에 따라 순서를 바꿔 진행합니다.</li>
+              <li>• 응급조치가 가능한 안전요원이 상시 배치되고, 응급처치키트를 갖춥니다.</li>
+              <li>• 미성년자는 참가 전 보호자 동의서(면책동의서)를 받습니다.</li>
+              <li>• 우천 시 실내강습장에서 서프스케이트로, 물때에 따라 순서를 바꿔 진행합니다.</li>
+              <li>• 강풍·높은 파도 등 기준 초과 시 일정을 조정하며, 여분 보드를 준비합니다.</li>
             </ul>
           </div>
         </div>
