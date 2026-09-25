@@ -29,6 +29,13 @@ const sections = [
     ],
   },
   {
+    title: "조합 운영",
+    links: [
+      { href: "/disclosure", label: "📋 경영공시" },
+      { href: "/performance", label: "📈 사업 실적" },
+    ],
+  },
+  {
     title: "안내",
     links: [{ href: "/contact", label: "문의·제휴" }],
   },

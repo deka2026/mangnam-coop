@@ -10,3 +10,4 @@ out/
 next-env.d.ts.bak
 tsconfig.tsbuildinfo
 tsconfig.tsbuildinfo
+__pycache__/
