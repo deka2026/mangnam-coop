@@ -63,8 +63,13 @@ export default function RootLayout({
           <div className="border-t border-sea-100">
             <div className="container-page py-5 text-xs text-sea-600 flex flex-wrap justify-between gap-2">
               <span>
-                © {new Date().getFullYear()} 망남마을협동조합 · 제작{" "}
-                <a href="https://sakyowon.co.kr/" className="underline hover:text-sea-900">사회혁신교육원(사교원)</a>
+                © {new Date().getFullYear()} 망남마을협동조합
+                <br />
+                제작·운영 지원 :{" "}
+                <a href="https://sakyowon.co.kr/" className="underline hover:text-sea-900">사회혁신교육원 사회적협동조합</a>
+                {" "}· 대전광역시 서구 관저중로80번길 8, 3층
+                <br />
+                사업자등록번호 397-82-00424 · 사업 : 교육, 컨설팅, IT
               </span>
               <span className="flex flex-wrap items-center gap-3">
                 <a href="https://sakyowon.co.kr/" className="inline-flex items-center rounded-full border border-sea-200 px-3 py-0.5 hover:bg-sea-50 hover:text-sea-900">🏠 사교원 관계 사이트</a>
