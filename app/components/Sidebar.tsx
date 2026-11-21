@@ -43,7 +43,7 @@ const sections = [
 
 const related = [
   { href: "https://sakyowon.co.kr/", label: "사교원 사이트 허브 ↗", bold: true },
-  { href: "https://sakyowon.poomasi.org", label: "사교원 홈페이지 ↗" },
+  { href: "https://sakyowon.co.kr/", label: "사교원 홈페이지 ↗" },
 ];
 
 export default function Sidebar() {
