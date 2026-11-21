@@ -240,7 +240,7 @@ export default function ReservationForm() {
               {copied ? "복사 완료 ✓" : "내용 복사하기"}
             </button>
             <a
-              href="https://sakyowon.poomasi.org/#/contact"
+              href="https://sakyowon.co.kr/#/ask"
               target="_blank"
               rel="noopener"
               className="btn-primary"

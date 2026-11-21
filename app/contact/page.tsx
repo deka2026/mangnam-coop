@@ -32,7 +32,7 @@ export default function Page() {
             문의 폼으로 연락 주시면 마을로 전달됩니다.
           </p>
           <a
-            href="https://sakyowon.poomasi.org/#/contact"
+            href="https://sakyowon.co.kr/#/ask"
             target="_blank"
             rel="noopener"
             className="btn-primary mt-4"

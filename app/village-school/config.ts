@@ -13,7 +13,7 @@ export const ENDPOINT =
 export const SITE = "mangnam-coop";
 
 /** 서버 연결 전이거나 전송 실패 시 폼은 "내용 복사 후 문의폼 전달" 방식으로 동작한다. */
-export const CONTACT_FORM_URL = "https://sakyowon.poomasi.org/#/contact";
+export const CONTACT_FORM_URL = "https://sakyowon.co.kr/#/ask";
 
 /** 신청 내용을 브라우저에도 남겨 두어, 전송 실패 시 사용자가 복구할 수 있게 한다. */
 export const LOCAL_BACKUP_KEY = "mangnam-village-school-application";

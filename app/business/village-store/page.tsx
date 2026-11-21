@@ -111,7 +111,7 @@ export default function Page() {
               사회혁신교육원 문의 폼을 통해 연락 주시면 마을로 전달됩니다.
             </p>
             <a
-              href="https://sakyowon.poomasi.org/#/contact"
+              href="https://sakyowon.co.kr/#/ask"
               target="_blank"
               rel="noopener"
               className="btn-outline mt-4"
