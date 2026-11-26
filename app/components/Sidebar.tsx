@@ -15,17 +15,13 @@ const sections = [
   {
     title: "마을학교",
     links: [
-      { href: "/village-school", label: "세 개의 교실 안내" },
-      { href: "/village-school/teen", label: "🌱 연두교실 · 청소년" },
-      { href: "/village-school/youth", label: "🌊 파란교실 · 청년" },
-      { href: "/village-school/senior", label: "🧭 푸른교실 · 장년" },
+      { href: "/village-school", label: "🎒 세 개의 교실" },
     ],
   },
   {
     title: "참여",
     links: [
       { href: "/plogging", label: "🧹 플로깅 신청" },
-      { href: "/mulmeong", label: "🌌 별달물멍 스팟예약" },
     ],
   },
   {
@@ -39,11 +35,11 @@ const sections = [
     title: "안내",
     links: [{ href: "/contact", label: "문의·제휴" }],
   },
+  // 2026-11-27 사이드바 16→10줄: 교실 셋은 「세 개의 교실」 화면 안 카드로, 스팟예약은 잠자리 화면 안 단추로
 ];
 
 const related = [
-  { href: "https://sakyowon.co.kr/", label: "사교원 사이트 허브 ↗", bold: true },
-  { href: "https://sakyowon.co.kr/", label: "사교원 홈페이지 ↗" },
+  { href: "https://sakyowon.co.kr/", label: "사교원 통합사이트 ↗", bold: true },
 ];
 
 export default function Sidebar() {
@@ -52,9 +48,8 @@ export default function Sidebar() {
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
-    // 허브(마을학교 안내)는 하위 교실 경로에서 켜지지 않도록 정확히 일치할 때만
-    if (href === "/village-school")
-      return pathname === "/village-school" || pathname === "/village-school/";
+    // 마을학교는 교실 세 화면에서도 켜진다(사이드바에 교실 줄이 따로 없음)
+    if (href === "/business/stay") return pathname.startsWith(href) || pathname.startsWith("/mulmeong");
     return pathname.startsWith(href);
   };
 

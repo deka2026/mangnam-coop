@@ -28,7 +28,7 @@ export default function Page() {
         <div className="card">
           <h2 className="font-bold text-sea-800 text-lg">지금 문의하기</h2>
           <p className="mt-2 text-sm text-sea-700">
-            공식 문의 창구가 준비되는 동안에는, 앵커 조직인 <strong>사회혁신교육원</strong> 홈페이지의
+            공식 문의 창구가 준비되는 동안에는, 앵커조직인 <strong>사회혁신교육원</strong> 홈페이지의
             문의 폼으로 연락 주시면 마을로 전달됩니다.
           </p>
           <a

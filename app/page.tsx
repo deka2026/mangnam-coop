@@ -1,15 +1,20 @@
 import Link from "next/link";
+import { img } from "./img";
 
 const businesses = [
   {
     href: "/business/village-store",
     icon: "🍚",
+    photo: "mangnam-abalone-hands-01.jpg",
+    alt: "망남 전복을 손질하는 손",
     title: "마을식당·편의점",
     desc: "주민과 방문객, 전복양식 노동자가 함께 이용하는 마을 공동 식당과 생활편의점을 운영합니다.",
   },
   {
     href: "/business/stay",
     icon: "🌌",
+    photo: "coop-port-night-01.jpg",
+    alt: "불빛이 비치는 밤바다 포구",
     title: "별달물멍잠자리",
     desc: "별멍·달멍·물멍 하고 자고 가는 마을 숙소. 하룻밤 5만원, 여러 날 6박 20만원, 한달쯤 30일 40만원.",
   },
@@ -20,9 +25,10 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="bg-gradient-to-b from-sea-50 to-earth-50">
-        <div className="container-page py-20 sm:py-28">
+        <div className="container-page py-14 sm:py-20 grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
           <p className="text-sea-600 font-semibold">완도 망남마을 · 어촌신활력증진사업</p>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-sea-900 leading-tight">
+          <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-sea-900 leading-tight [word-break:keep-all]">
             전복의 마을,<br />
             <span className="text-sea-600">망남</span>의 지속가능한 마을경제
           </h1>
@@ -35,6 +41,12 @@ export default function Home() {
             <Link href="/donation" className="btn-primary">고향사랑기부로 함께하기</Link>
             <Link href="/business/village-store" className="btn-outline">마을 사업 둘러보기</Link>
           </div>
+          </div>
+          <figure className="m-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img("mangnam-port-aerial-01.jpg")} alt="하늘에서 본 망남 포구와 마을" className="w-full aspect-[4/3] object-cover rounded-2xl shadow-sm ring-1 ring-sea-100" />
+            <figcaption className="mt-2 text-xs text-sea-500">하늘에서 본 망남 포구와 마을</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -73,7 +85,9 @@ export default function Home() {
           <p className="section-sub">주민이 직접 운영하며 소득과 일자리를 마을 안에 남기는 생활밀착형 사업입니다.</p>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {businesses.map((b) => (
-              <Link key={b.href} href={b.href} className="card hover:ring-sea-300 transition group">
+              <Link key={b.href} href={b.href} className="card overflow-hidden hover:ring-sea-300 transition group">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={img(b.photo)} alt={b.alt} className="-mx-6 -mt-6 mb-4 block w-[calc(100%+3rem)] max-w-none aspect-[16/9] object-cover" />
                 <div className="flex items-start gap-4">
                   <span className="text-3xl">{b.icon}</span>
                   <div>
@@ -99,7 +113,7 @@ export default function Home() {
           </h2>
           <p className="mt-3 max-w-2xl text-sea-700">
             완도 망남 바다와 마을을 교실 삼아, 청소년·청년·장년이 각자의 자리에서 배웁니다.
-            청년 프로그램 파란교실 1기(10/12~10/15, 3박 4일)가 참가자를 모집 중입니다.
+            청년 프로그램 파란교실 1기(10/12~10/15, 3박 4일)를 마쳤습니다. 다음 기수 소식은 마을학교 안내로 알려 드립니다.
           </p>
           <div className="mt-5 flex flex-wrap gap-2 text-xs">
             {["🌱 연두교실 · 청소년", "🌊 파란교실 · 청년", "🧭 푸른교실 · 장년"].map((t) => (
@@ -118,7 +132,9 @@ export default function Home() {
       <section className="container-page pb-16">
         <h2 className="section-title">마을과 함께하는 방법</h2>
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
-          <div className="card">
+          <div className="card overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img("mangnam-beach-pano-01.jpg")} alt="망남 바닷가와 곶" className="-mx-6 -mt-6 mb-4 block w-[calc(100%+3rem)] max-w-none aspect-[16/9] object-cover" />
             <div className="text-2xl">🧹</div>
             <h3 className="mt-2 font-bold text-sea-800">플로깅 신청</h3>
             <p className="mt-1 text-sm text-sea-700">
@@ -127,7 +143,9 @@ export default function Home() {
             </p>
             <Link href="/plogging" className="mt-4 inline-block text-sea-600 font-medium hover:text-sea-800">신청하기 →</Link>
           </div>
-          <div className="card">
+          <div className="card overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img("coop-sea-sun-01.jpg")} alt="햇빛이 반짝이는 바다" className="-mx-6 -mt-6 mb-4 block w-[calc(100%+3rem)] max-w-none aspect-[16/9] object-cover" />
             <div className="text-2xl">🌌</div>
             <h3 className="mt-2 font-bold text-sea-800">별달물멍 스팟예약</h3>
             <p className="mt-1 text-sm text-sea-700">

@@ -12,7 +12,7 @@ const FACTS = [
   { k: "일정", v: "9월 5일(토) ~ 6일(일) · 09:30~18:00" },
   { k: "장소", v: "완도 망남 한뼘해변 (실내강습장·특판장, 화장실·샤워실)" },
   { k: "정원", v: "소수정예 (안전 지도 6~10명)" },
-  { k: "준비물", v: "레쉬가드 또는 웻수트 (장비 대여)" },
+  { k: "준비물", v: "래시가드 또는 웨트슈트 (장비 대여)" },
   { k: "참가비", v: "추후 공지 · 문의 접수" },
 ];
 
@@ -161,7 +161,7 @@ export default function Page() {
           <div className="card ring-lime-100">
             <h2 className="font-bold text-lime-800 text-lg">준비물</h2>
             <ul className="mt-4 space-y-2 text-sm leading-relaxed text-sea-700">
-              <li>• 레쉬가드 또는 웻수트 (물에 젖어도 되는 옷)</li>
+              <li>• 래시가드 또는 웨트슈트 (물에 젖어도 되는 옷)</li>
               <li>• 여벌 옷·수건·세면도구, 개인 상비약</li>
               <li>• 자외선 차단제, 아쿠아슈즈(선택)</li>
               <li className="text-lime-700">

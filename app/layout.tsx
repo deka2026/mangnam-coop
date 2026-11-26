@@ -66,7 +66,7 @@ export default function RootLayout({
                 © {new Date().getFullYear()} 망남마을협동조합
                 <br />
                 제작·운영 지원 :{" "}
-                <a href="https://sakyowon.co.kr/" className="underline hover:text-sea-900">사회혁신교육원 사회적협동조합</a>
+                <a href="https://sakyowon.co.kr/" className="underline hover:text-sea-900">사회혁신교육원사회적협동조합</a>
                 {" "}· 대전광역시 서구 관저중로80번길 8, 3층
                 <br />
                 사업자등록번호 397-82-00424 · 사업 : 교육, 컨설팅, IT
@@ -76,7 +76,6 @@ export default function RootLayout({
                 <span>지정기부금단체 등록 진행 중</span>
                 <Link href="/village-school/admin" rel="nofollow" className="inline-flex items-center rounded-full border border-sea-200 px-3 py-0.5 hover:bg-sea-50 hover:text-sea-900">🎓 마을학교 신청 관리</Link>
                 <Link href="/admin" rel="nofollow" className="inline-flex items-center rounded-full border border-sea-200 px-3 py-0.5 hover:bg-sea-50 hover:text-sea-900">🗂 조합 운영관리</Link>
-                <a href="https://sakyowon.co.kr/admin.html" rel="nofollow" className="inline-flex items-center rounded-full border border-sea-200 px-3 py-0.5 hover:bg-sea-50 hover:text-sea-900">🔐 통합 관리자</a>
               </span>
             </div>
           </div>

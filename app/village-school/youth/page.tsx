@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DAYS } from "../data";
-import ApplicationForm from "../ApplicationForm";
 
 export const metadata: Metadata = {
   title: "파란교실 (청년) | 망남마을학교",
@@ -58,7 +57,7 @@ export default function Page() {
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href="#apply" className="btn-primary">
-              참가 신청하기
+              1기 종료 안내
             </a>
             <a href="#schedule" className="btn-outline">
               4일 일정 보기
@@ -88,7 +87,7 @@ export default function Page() {
           도시의 많은 청년에게 부족한 것은
           프로그램의 수가 아니라, 프로그램과 프로그램 사이를 건너게 해 줄 관계와 장소입니다.
           망남리에는 정반대의 결핍이 있습니다. 청년들이 그 결핍을 채우며 새로운 관계와 머물자리를 만들어갑니다.
-          장소에 구애받지 않는 새로운 일거리를 만들어봐요.
+          장소에 구애받지 않는 새로운 일거리를 함께 만들어 봅니다.
           <strong className="text-sea-900">
             {" "}이 마을에 부족한 것은 자원이 아니라 그 자원과 함께 움직일 사람입니다.
           </strong>
@@ -219,7 +218,7 @@ export default function Page() {
             하루의 자유여행은 무료 마을버스와 완도군 여행할인 제도를 활용할 수 있습니다.
           </p>
           <p className="mt-3 text-sm text-sea-700">
-            어촌신활력증진사업 기본계획의 S/W 사업 &mdash;{" "}
+            어촌신활력증진사업 기본계획의 운영 프로그램 사업 &mdash;{" "}
             <span className="font-medium">B1 망남 건강관리실</span>,{" "}
             <span className="font-medium">B2 망남 마을학교</span>,{" "}
             <span className="font-medium">B3 생산자 주도 유통체계</span> &mdash; 를 실제 운영으로
@@ -248,43 +247,15 @@ export default function Page() {
       <section id="apply" className="container-page pb-20 scroll-mt-8">
         <h2 className="section-title text-2xl sm:text-3xl">참가 신청</h2>
         <p className="section-sub">
-          개인별로 신청합니다. 미리 알려 주시는 내용이 많을수록 4일이 편안해집니다.
-          하기 싫은 것을 적는 칸이 하고 싶은 것을 적는 칸만큼 중요합니다.
+          1기 신청은 마감되었습니다.
         </p>
 
-        {/* 신청 절차 */}
-        <ol className="mt-8 grid gap-4 sm:grid-cols-3">
-          <li className="card">
-            <p className="text-sm font-semibold text-sea-500">STEP 1 <span className="ml-1 rounded-full bg-sea-100 px-2 py-0.5 text-xs font-bold text-sea-700">9/18(금)까지</span></p>
-            <h3 className="mt-1 font-bold text-sea-900">참가 신청서 작성</h3>
-            <p className="mt-2 text-sm leading-relaxed text-sea-700">
-              제시한 일정에 참여 가능할 경우 작성하세요. 이름·전화번호·이메일,
-              원하는 프로그램(스킴보드 강습, 해안로 탐방, AI 교육, 온라인셀러 교육,
-              취창업 교육, 완도 자유여행 등), 제안한 일정 참가 여부, 인천–완도 고속버스
-              여행 가능 여부(버스 왕복예매권 제공)를 적습니다. 참가비는 2만원입니다
-              (네트워크 파티 음식 준비용, 불참 시 환불 불가).
-            </p>
-          </li>
-          <li className="card">
-            <p className="text-sm font-semibold text-sea-500">STEP 2 <span className="ml-1 rounded-full bg-sea-100 px-2 py-0.5 text-xs font-bold text-sea-700">9/23(수)까지</span></p>
-            <h3 className="mt-1 font-bold text-sea-900">개별 전화 인터뷰</h3>
-            <p className="mt-2 text-sm leading-relaxed text-sea-700">
-              제안하는 프로그램에 대한 선호도 조사와, 개인별 특성을 고려한
-              주최측 준비를 위한 인터뷰를 진행합니다.
-            </p>
-          </li>
-          <li className="card">
-            <p className="text-sm font-semibold text-sea-500">STEP 3 <span className="ml-1 rounded-full bg-sea-100 px-2 py-0.5 text-xs font-bold text-sea-700">9/30(수)까지</span></p>
-            <h3 className="mt-1 font-bold text-sea-900">최종 참가 통보 및 안내</h3>
-            <p className="mt-2 text-sm leading-relaxed text-sea-700">
-              개인별 특성을 고려하여 현지 사정으로 적절한 준비를 할 수 없는
-              경우에는 참가 불가를 안내드립니다.
-            </p>
-          </li>
-        </ol>
-
-        <div className="mt-8">
-          <ApplicationForm />
+        <div className="mt-8 card bg-sea-50 ring-sea-200">
+          <h3 className="font-bold text-sea-800 text-lg">✅ 1기 신청 접수가 끝났습니다</h3>
+          <p className="mt-2 text-sm leading-relaxed text-sea-800">
+            파란교실 1기(10/12~10/15, 3박 4일) 과정을 마쳤습니다.
+            다음 기수 소식은 마을학교 안내를 통해 알려 드리겠습니다.
+          </p>
         </div>
         <p className="mt-6 text-xs text-sea-600">
           신청 내용은 프로그램 운영·안전관리 목적으로만 사용하며, 사업 종료 후 3개월 이내에

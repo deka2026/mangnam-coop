@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { img } from "../../img";
 import ReservationForm from "./ReservationForm";
 
 export const metadata: Metadata = {
@@ -40,6 +41,11 @@ export default function Page() {
             생활 인프라가 부족한 어촌 마을에, 주민과 방문객 그리고 전복 양식 현장의 외국인 근로자가
             함께 이용하는 마을 공동 식당과 생활편의점을 운영합니다.
           </p>
+          <figure className="mt-6 m-0 max-w-3xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img("mangnam-abalone-hands-01.jpg")} alt="망남 전복을 손질하는 손" className="w-full max-h-[340px] object-cover rounded-2xl ring-1 ring-sea-100" />
+            <figcaption className="mt-2 text-xs text-sea-500">망남 전복을 손질하는 손 (식당 사진은 개점 뒤 올립니다)</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -91,7 +97,7 @@ export default function Page() {
             <h3 className="font-bold text-sea-800">식당 이용 방법</h3>
             <ul className="mt-3 space-y-2 text-sm text-sea-700">
               <li>1️⃣ 위 예약 폼에 이름·연락처·메뉴·수량을 작성합니다.</li>
-              <li>2️⃣ 만들어진 예약 내용을 복사해 문의 폼으로 전달합니다.</li>
+              <li>2️⃣ 「예약 신청하기」를 누르면 마을로 바로 전달됩니다. 연결이 안 될 때만 내용을 복사해 문의 폼으로 보내 주세요.</li>
               <li>3️⃣ 마을에서 확인 후 예약 확정 연락을 드립니다.</li>
               <li>👥 단체 식사·공동급식은 요청사항에 인원수를 적어 주세요.</li>
             </ul>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { img } from "../img";
 
 export const metadata: Metadata = {
   title: "크라우드펀딩 | 망남마을협동조합",
@@ -16,6 +17,11 @@ export default function Page() {
             망남마을이 준비하는 프로젝트를 크라우드펀딩으로 함께 만듭니다. 전복 가공품(밀키트·도시락 등)
             개발부터 마을 관광 체험 상품까지, 후원자에게는 리워드로 마을의 산물이 돌아갑니다.
           </p>
+          <figure className="mt-6 m-0 max-w-3xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img("mangnam-cage-sea-01.jpg")} alt="망남 앞바다 전복 가두리 양식장" className="w-full max-h-[340px] object-cover rounded-2xl ring-1 ring-sea-100" />
+            <figcaption className="mt-2 text-xs text-sea-500">망남 앞바다 전복 가두리 양식장</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -26,7 +32,7 @@ export default function Page() {
             <span className="inline-block rounded-full bg-sea-100 text-sea-700 text-xs px-3 py-1">준비 중</span>
             <h3 className="mt-3 font-bold text-sea-800">망남 전복 가공품 개발</h3>
             <p className="mt-1 text-sm text-sea-700">
-              규격 외 전복을 활용한 밀키트·도시락 등 HMR 제품을 개발해, 어가 소득과 새로운 판로를 만듭니다.
+              규격 외 전복을 활용한 밀키트·도시락 같은 간편식을 개발해, 어가 소득과 새로운 판로를 만듭니다.
             </p>
           </div>
           <div className="card">

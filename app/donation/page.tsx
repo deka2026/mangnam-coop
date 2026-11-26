@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { img } from "../img";
 
 export const metadata: Metadata = {
   title: "고향사랑기부 | 망남마을협동조합",
@@ -16,6 +17,11 @@ export default function Page() {
             고향사랑기부제를 통해 망남마을을 후원할 수 있습니다. 기부금은 마을식당·돌봄·관광 등
             마을공동체 사업에 쓰이며, 기부자는 세액공제와 답례품 혜택을 받습니다.
           </p>
+          <figure className="mt-6 m-0 max-w-3xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img("mangnam-sea-wave-01.jpg")} alt="망남 앞바다 물결" className="w-full max-h-[340px] object-cover rounded-2xl ring-1 ring-sea-100" />
+            <figcaption className="mt-2 text-xs text-sea-500">망남 앞바다</figcaption>
+          </figure>
         </div>
       </section>
 

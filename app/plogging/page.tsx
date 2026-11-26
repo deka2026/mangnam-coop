@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { img } from "../img";
 import ParticipateForm from "../components/ParticipateForm";
 
 export const metadata: Metadata = {
@@ -19,6 +20,11 @@ export default function Page() {
             걸으며 바다 쓰레기를 줍고, 마을과 바다를 함께 돌봅니다. 주민·방문객 누구나
             참여할 수 있습니다.
           </p>
+          <figure className="mt-6 m-0 max-w-3xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img("mangnam-beach-pano-01.jpg")} alt="망남 바닷가와 곶" className="w-full max-h-[340px] object-cover rounded-2xl ring-1 ring-sea-100" />
+            <figcaption className="mt-2 text-xs text-sea-500">망남 바닷가</figcaption>
+          </figure>
         </div>
       </section>
 

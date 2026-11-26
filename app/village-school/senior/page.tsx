@@ -175,7 +175,7 @@ export default function Page() {
           <div className="card ring-teal-100">
             <h3 className="font-bold text-teal-800 text-lg">준비물</h3>
             <ul className="mt-4 space-y-2 text-sm leading-relaxed text-sea-700">
-              <li>• 레쉬가드 또는 웻수트</li>
+              <li>• 래시가드 또는 웨트슈트</li>
               <li>• 여벌 옷·수건·세면도구, 개인 상비약</li>
               <li className="text-teal-700">
                 · 스킴보드·서프스케이트·밸런스보드 등 훈련 장비는 과정에서 제공/대여합니다.

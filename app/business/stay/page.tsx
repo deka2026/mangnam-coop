@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { img } from "../../img";
 import Link from "next/link";
 import StayForm from "./StayForm";
 
@@ -20,6 +21,14 @@ export default function Page() {
             정비한 망남의 숙소입니다. 하룻밤도, 여러 날도, 한 달 살기도 — 머무는 만큼만
             내면 됩니다.
           </p>
+          <figure className="mt-6 m-0 max-w-3xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img("mangnam-boat-cabin-sunset-01.jpg")} alt="노을빛이 드는 망남 어선" className="w-full max-h-[340px] object-cover rounded-2xl ring-1 ring-sea-100" />
+            <figcaption className="mt-2 text-xs text-sea-500">노을빛이 드는 망남 바다의 어선 (숙소 사진은 준비 중입니다)</figcaption>
+          </figure>
+          <div className="mt-5">
+            <Link href="/mulmeong" className="btn-outline">🌌 별달물멍 스팟예약 →</Link>
+          </div>
         </div>
       </section>
 
