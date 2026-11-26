@@ -6,7 +6,7 @@ const businesses = [
     href: "/business/village-store",
     icon: "🍚",
     photo: "mangnam-abalone-hands-01.jpg",
-    alt: "망남 전복을 손질하는 손",
+    alt: "망남 앞바다 수산물 손질",
     title: "마을식당·편의점",
     desc: "주민과 방문객, 전복양식 노동자가 함께 이용하는 마을 공동 식당과 생활편의점을 운영합니다.",
   },

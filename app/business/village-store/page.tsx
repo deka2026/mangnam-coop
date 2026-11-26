@@ -43,8 +43,8 @@ export default function Page() {
           </p>
           <figure className="mt-6 m-0 max-w-3xl">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={img("mangnam-abalone-hands-01.jpg")} alt="망남 전복을 손질하는 손" className="w-full max-h-[340px] object-cover rounded-2xl ring-1 ring-sea-100" />
-            <figcaption className="mt-2 text-xs text-sea-500">망남 전복을 손질하는 손 (식당 사진은 개점 뒤 올립니다)</figcaption>
+            <img src={img("mangnam-abalone-hands-01.jpg")} alt="망남 앞바다 수산물 손질" className="w-full max-h-[340px] object-cover rounded-2xl ring-1 ring-sea-100" />
+            <figcaption className="mt-2 text-xs text-sea-500">망남 앞바다 수산물 손질 (식당 사진은 개점 뒤 올립니다)</figcaption>
           </figure>
         </div>
       </section>
